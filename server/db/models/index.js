@@ -48,8 +48,3 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 module.exports = db;
-
-// this.belongsToMany(Courses, {
-//   foreignKey: 'course_id',
-//   through: 'Lessons',
-// });
