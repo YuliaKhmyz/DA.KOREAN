@@ -1,0 +1,20 @@
+.navbar {
+  height: 100px;
+}
+
+.navbar a {
+  color: #fff;
+}
+
+.dropdown-menu a {
+  color: #000;
+}
+
+.logo-text {
+  text-transform: uppercase;
+  font-size: 35px;
+}
+
+.user-name {
+  margin: 0px 20px 0px 0px;
+}
