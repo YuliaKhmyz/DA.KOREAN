@@ -1,0 +1,10 @@
+.footer {
+  min-height: 250px;
+  background-color: #313848;
+}
+
+.footer .navbar {
+  justify-content: center;
+  flex-direction: column;
+  height: 250px;
+}
