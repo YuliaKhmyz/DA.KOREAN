@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { registerUser, resetRegisterFormError } from './authSlice';
 import { useAppDispatch } from '../../store';
 
@@ -15,7 +15,7 @@ type FormInput = {
 function Register(): JSX.Element {
   const { register, handleSubmit } = useForm<FormInput>();
   const dispatch = useAppDispatch();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<FormInput> = async (data) => {
     console.log(data);
@@ -28,9 +28,9 @@ function Register(): JSX.Element {
         password2: data.password2,
       })
     );
-    // if (registerUser.fulfilled.match(dispatchResult)) {
-    //   navigate('/');
-    // }
+    if (registerUser.fulfilled.match(dispatchResult)) {
+      navigate('/');
+    }
   };
 
   return (

@@ -9,8 +9,9 @@ function Header(): JSX.Element {
       </a>
       <a href="#">О нас</a>
       <a href="#">Языковые курсы</a> <a href="#">Калиграфия</a>
-      <a href="#">Блог</a> <a href="#">Вход</a>
-      <a href="#">Регистрация</a>{' '}
+      <a href="#">Блог</a>
+      <Link to="/auth/login">Войти</Link>{' '}
+      <Link to="/auth/register">Регистрация</Link>{' '}
     </header>
   );
 }

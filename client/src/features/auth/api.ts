@@ -23,7 +23,6 @@ export async function login(credentials: Credentials): Promise<User> {
     },
   });
 
-  // 332 реджектим промис если вернулся ошибочный статус
   if (res.status >= 400) {
     const { error } = await res.json();
     throw error;

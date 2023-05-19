@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 
 const { User } = require('../../db/models');
 
-authApiRouter.post('register', async (req, res) => {
+authApiRouter.post('/register', async (req, res) => {
   const { name, email, password, password2 } = req.body;
 
   try {
@@ -55,9 +55,9 @@ authApiRouter.post('register', async (req, res) => {
 });
 
 authApiRouter.post('/login', async (req, res) => {
-  const { name, password } = req.body;
+  const { email, password } = req.body;
 
-  const user = await User.findOne({ where: { name } });
+  const user = await User.findOne({ where: { email } });
 
   try {
     if (user && password) {

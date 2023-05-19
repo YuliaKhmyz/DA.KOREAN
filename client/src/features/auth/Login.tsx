@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useForm, SubmitHandler } from 'react-hook-form';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { login, resetLoginFormError } from './authSlice';
 import { selectLoginFormError } from './selectors';
 import { useAppDispatch } from '../../store';
@@ -14,7 +14,7 @@ type FormInput = {
 function Login(): JSX.Element {
   const { register, handleSubmit } = useForm<FormInput>();
   const dispatch = useAppDispatch();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<FormInput> = async (data) => {
     console.log(data);
@@ -25,9 +25,9 @@ function Login(): JSX.Element {
         password: data.password,
       })
     );
-    // if (login.fulfilled.match(dispatchResult)) {
-    //   navigate('/');
-    // }
+    if (login.fulfilled.match(dispatchResult)) {
+      navigate('/');
+    }
   };
 
   return (
