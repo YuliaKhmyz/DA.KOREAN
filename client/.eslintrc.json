@@ -4,17 +4,7 @@
     "es2021": true,
     "jest": true
   },
-  "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:react-hooks/recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:@typescript-eslint/recommended-requiring-type-checking",
-    "airbnb",
-    "airbnb/hooks",
-    "airbnb-typescript",
-    "prettier"
-  ],
+  "extends": ["eslint:recommended", "plugin:react/recommended", "plugin:react-hooks/recommended", "plugin:@typescript-eslint/recommended", "plugin:@typescript-eslint/recommended-requiring-type-checking", "airbnb", "airbnb/hooks", "airbnb-typescript", "prettier"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
@@ -52,6 +42,7 @@
     "@typescript-eslint/consistent-type-definitions": ["warn", "type"],
     "import/no-extraneous-dependencies": "off",
     "no-console": "off",
-    "no-nested-ternary": 0
+    "no-nested-ternary": 0,
+    "react/require-default-props": 0
   }
 }
