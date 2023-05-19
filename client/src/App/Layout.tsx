@@ -1,12 +1,15 @@
 import React from 'react';
-import Header from './Header';
-import Footer from './Footer';
 import { Outlet } from 'react-router-dom';
+import Footer from '../Components/Footer/Footer';
+import Header from '../Components/Header/Header';
 
-function Layout() {
+function Layout(): JSX.Element {
   return (
     <div>
       <Header />
+      <div className="main-content" style={{ height: '100px' }}>
+        <h1>Какой-то контент</h1>
+      </div>
       <Outlet />
       <Footer />
     </div>
