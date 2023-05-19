@@ -13,7 +13,7 @@ const sessionConfig = require('./config/session');
 serverConfig(app);
 
 app.use(session(sessionConfig));
-app.use('api/auth', authApiRouter);
+app.use('/api/auth', authApiRouter);
 
 try {
   app.listen(PORT, () => {
