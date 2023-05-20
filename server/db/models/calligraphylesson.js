@@ -29,12 +29,11 @@ module.exports = (sequelize, DataTypes) => {
           key: 'id',
         },
       },
-      DataTypes,
     },
     {
       sequelize,
       modelName: 'CalligraphyLesson',
-    },
+    }
   );
   return CalligraphyLesson;
 };
