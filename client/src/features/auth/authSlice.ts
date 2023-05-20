@@ -11,7 +11,7 @@ const initialState: AuthState = {
   registerFormError: undefined,
 };
 
-export const getUser = createAsyncThunk('auth/user', () => api.user());
+export const getUser = createAsyncThunk('auth/check', () => api.user());
 
 export const login = createAsyncThunk(
   'auth/login',
@@ -61,6 +61,10 @@ const authSlice = createSlice({
           ? action.payload.user
           : undefined;
       })
+      // state.authChecked = true;
+      // if (action.payload.isLoggedIn) {
+      //   state.user = action.payload.user;
+      // }
 
       .addCase(login.fulfilled, (state, action) => {
         state.user = action.payload;

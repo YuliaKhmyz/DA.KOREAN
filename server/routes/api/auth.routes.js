@@ -101,17 +101,23 @@ authApiRouter.get('/logout', async (req, res) => {
   }
 });
 
-authApiRouter.get('/checkUser', async (req, res) => {
+authApiRouter.get('/check', async (req, res) => {
   try {
     const userSession = req.session.userId;
     if (userSession) {
-      const user = await User.findOne({
+      const { dataValues: user } = await User.findOne({
         where: { id: userSession },
         attributes: { exclude: ['password'] },
       });
-      res.status(201).json(user);
+      res.status(201).json({
+        isLoggedIn: true,
+        user: {
+          id: user.id,
+          name: user.name,
+        },
+      });
     } else {
-      res.end();
+      res.json({ user: undefined, isLoggedIn: false });
     }
   } catch (error) {
     res.status(404).json({ message: error.messsage });

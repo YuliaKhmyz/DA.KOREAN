@@ -13,26 +13,38 @@ type FormInput = {
 
 function Login(): JSX.Element {
   const { register, handleSubmit } = useForm<FormInput>();
+  const error = useSelector(selectLoginFormError);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<FormInput> = async (data) => {
-    console.log(data);
-
     const dispatchResult = await dispatch(
       login({
         email: data.email,
         password: data.password,
       })
     );
+    console.log(dispatchResult);
+
     if (login.fulfilled.match(dispatchResult)) {
       navigate('/');
+
+      if (login.rejected.match(dispatchResult)) {
+        console.error(dispatchResult.payload);
+      }
     }
   };
+
+  console.log(error);
 
   return (
     <form className="auth-form" onSubmit={handleSubmit(onSubmit)}>
       <h2>Вход</h2>
+      {error && (
+        <div className="invalid-feedback mb-3" style={{ display: 'block' }}>
+          {error}
+        </div>
+      )}
       <div className="mb-3">
         <label htmlFor="email-input" className="form-label">
           Адрес электронной почты

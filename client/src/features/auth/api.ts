@@ -11,7 +11,7 @@ export async function user(): Promise<
       isLoggedIn: false;
     }
 > {
-  return (await fetch('/api/auth/checkUser')).json();
+  return (await fetch('/api/auth/check')).json();
 }
 
 export async function login(credentials: Credentials): Promise<User> {

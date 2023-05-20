@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { registerUser, resetRegisterFormError } from './authSlice';
@@ -17,21 +17,22 @@ function Register(): JSX.Element {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const onSubmit: SubmitHandler<FormInput> = async (data) => {
-    console.log(data);
-
-    const dispatchResult = await dispatch(
-      registerUser({
-        name: data.name,
-        email: data.email,
-        password: data.password,
-        password2: data.password2,
-      })
-    );
-    if (registerUser.fulfilled.match(dispatchResult)) {
-      navigate('/');
-    }
-  };
+  const onSubmit: SubmitHandler<FormInput> = React.useCallback(
+    async (data) => {
+      const dispatchResult = await dispatch(
+        registerUser({
+          name: data.name,
+          email: data.email,
+          password: data.password,
+          password2: data.password2,
+        })
+      );
+      if (registerUser.fulfilled.match(dispatchResult)) {
+        navigate('/');
+      }
+    },
+    [dispatch, navigate]
+  );
 
   return (
     // eslint-disable-next-line @typescript-eslint/no-misused-promises
