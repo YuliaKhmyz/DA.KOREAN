@@ -73,7 +73,7 @@ authApiRouter.post('/login', async (req, res) => {
       }
 
       if (!user || !(await bcrypt.compare(password, user.password))) {
-        res.json({
+        res.status(401).json({
           success: false,
           message: 'Нет такого пользователя, либо пароль не соответствует',
         });
@@ -104,6 +104,7 @@ authApiRouter.get('/logout', async (req, res) => {
 authApiRouter.get('/check', async (req, res) => {
   try {
     const userSession = req.session.userId;
+    console.log('userSession', userSession);
     if (userSession) {
       const { dataValues: user } = await User.findOne({
         where: { id: userSession },

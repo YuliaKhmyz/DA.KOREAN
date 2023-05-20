@@ -56,7 +56,7 @@ const authSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getUser.fulfilled, (state, action) => {
-        state.authChecked = true;
+        state.authChecked = action.payload.isLoggedIn;
         state.user = action.payload.isLoggedIn
           ? action.payload.user
           : undefined;
@@ -68,15 +68,21 @@ const authSlice = createSlice({
 
       .addCase(login.fulfilled, (state, action) => {
         state.user = action.payload;
+        state.authChecked = Boolean(action.payload);
+        // action.payload
+        //   ? (state.authChecked = true)
+        //   : (state.authChecked = false);
         state.loginFormError = undefined;
       })
 
       .addCase(login.rejected, (state, action) => {
         state.loginFormError = action.error.message;
+        console.log(action);
       })
 
       .addCase(logout.fulfilled, (state) => {
         state.user = undefined;
+        state.authChecked = false;
       })
 
       .addCase(registerUser.fulfilled, (state, action) => {
