@@ -9,17 +9,14 @@ authApiRouter.post('/register', async (req, res) => {
   try {
     if (name && email && password && password2) {
       if (password !== password2) {
-        res
-          .status(403)
-          .json({ success: false, message: 'Пароли не совпадают' });
+        res.status(403).json({ error: 'Пароли не совпадают' });
         return;
       }
 
       const existingUser = await User.findOne({ where: { name } });
       if (existingUser) {
         res.status(409).json({
-          success: false,
-          message: 'Пользователь с таким логином уже существует',
+          error: 'Пользователь с таким логином уже существует',
         });
         return;
       }
@@ -28,15 +25,14 @@ authApiRouter.post('/register', async (req, res) => {
 
       if (existingEmail) {
         res.status(409).json({
-          success: false,
-          message:
+          error:
             'Пользователь с таким адресом электронной почты уже существует',
         });
         return;
       }
 
       if (!existingUser && !existingEmail && password === password2) {
-        const user = User.create({
+        const user = await User.create({
           name,
           email,
           password: await bcrypt.hash(password, 10),
@@ -47,7 +43,7 @@ authApiRouter.post('/register', async (req, res) => {
         return;
       }
     } else {
-      res.status(403).json({ message: 'Заполните все поля' });
+      res.status(403).json({ error: 'Заполните все поля' });
     }
   } catch (error) {
     console.error(error);
@@ -73,11 +69,9 @@ authApiRouter.post('/login', async (req, res) => {
       }
 
       if (!user || !(await bcrypt.compare(password, user.password))) {
-        res.status(401).json({
-          success: false,
-          message: 'Нет такого пользователя, либо пароль не соответствует',
-        });
-        return;
+        res
+          .status(401)
+          .json({ error: 'Такого пользователя нет, либо пароли не совпадают' });
       }
     } else {
       res.status(403).json({ message: 'Заполните все поля' });

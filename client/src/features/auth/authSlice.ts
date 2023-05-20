@@ -17,7 +17,7 @@ export const login = createAsyncThunk(
   'auth/login',
   async (credentials: Credentials) => {
     if (!credentials.email.trim() || !credentials.password.trim()) {
-      throw new Error('Не все поля заполнены');
+      throw new Error('Заполнены не все поля');
     }
 
     return api.login(credentials);
@@ -32,7 +32,7 @@ export const registerUser = createAsyncThunk(
     }
 
     if (!data.email.trim() || !data.password.trim()) {
-      throw new Error('Не все поля заполнены');
+      throw new Error('Заполнены не все поля');
     }
 
     return api.register(data);
@@ -61,23 +61,15 @@ const authSlice = createSlice({
           ? action.payload.user
           : undefined;
       })
-      // state.authChecked = true;
-      // if (action.payload.isLoggedIn) {
-      //   state.user = action.payload.user;
-      // }
 
       .addCase(login.fulfilled, (state, action) => {
         state.user = action.payload;
         state.authChecked = Boolean(action.payload);
-        // action.payload
-        //   ? (state.authChecked = true)
-        //   : (state.authChecked = false);
         state.loginFormError = undefined;
       })
 
       .addCase(login.rejected, (state, action) => {
         state.loginFormError = action.error.message;
-        console.log(action);
       })
 
       .addCase(logout.fulfilled, (state) => {
@@ -87,6 +79,7 @@ const authSlice = createSlice({
 
       .addCase(registerUser.fulfilled, (state, action) => {
         state.user = action.payload;
+        state.authChecked = Boolean(action.payload);
         state.registerFormError = undefined;
       })
       .addCase(registerUser.rejected, (state, action) => {

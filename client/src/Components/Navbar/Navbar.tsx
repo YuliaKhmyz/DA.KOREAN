@@ -39,8 +39,6 @@ function NavbarComponent({
     [dispatch, navigate]
   );
 
-  console.log('1111', authChecked);
-
   useEffect(() => {
     dispatch(getUser());
   }, [dispatch]);
