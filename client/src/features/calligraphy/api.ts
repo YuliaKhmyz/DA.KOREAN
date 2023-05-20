@@ -24,6 +24,6 @@ export async function deleteCalligraphy(id: CalligraphyId): Promise<void> {
 }
 
 export async function getCalligraphy(): Promise<Callirgaphy[]> {
-  const result = await fetch('/api/callirgaphies');
+  const result = await fetch('/api/calligraphies');
   return result.json();
 }

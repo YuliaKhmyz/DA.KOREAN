@@ -11,6 +11,7 @@ function CalligraphyPage() {
   useEffect(() => {
     dispatch(loadCalligraphies());
   }, [dispatch]);
+  console.log(calligraphies);
 
   return (
     <div>
@@ -46,9 +47,7 @@ function CalligraphyPage() {
           <div key={calligraphy.id}>
             <h4>{calligraphy.title}</h4>
             <button>
-              <a href={calligraphy.link} download>
-                Купить
-              </a>
+              <a href={calligraphy.link}>Купить</a>
             </button>
           </div>
         ))}

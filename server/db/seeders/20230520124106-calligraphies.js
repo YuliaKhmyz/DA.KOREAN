@@ -7,7 +7,7 @@ module.exports = {
       'CalligraphyCourses',
       [
         {
-          link: 'https://drive.google.com/file/d/1bXqYRAR_8f0fCaEm80BqX0Q75VtD8YdJ/view?usp=drivesdk',
+          link: 'https://drive.google.com/u/0/uc?id=1bXqYRAR_8f0fCaEm80BqX0Q75VtD8YdJ&export=download',
           title: 'spring',
           createdAt: new Date(),
           updatedAt: new Date(),
