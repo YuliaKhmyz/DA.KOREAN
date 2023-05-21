@@ -37,12 +37,14 @@
 }
 
 .first-section_left .description {
+  font-size: 20px;
   width: 100%;
   max-width: 445px;
   margin: 0px 0px 40px 0px;
 }
 
 .first-section_left .lesson-sign-up {
+  font-size: 20px;
   transition: 0.4s;
   margin: 0px 24px 0px 0px;
   background-color: #ffad00;
@@ -56,6 +58,17 @@
 .first-section_left .lesson-sign-up:active {
   opacity: 1;
   background-color: #ff5e00;
+}
+
+.first-section_left .more-info {
+  font-size: 20px;
+  border: 2px solid #201a1a;
+  color: #201a1a;
+}
+
+.first-section_left .more-info:hover {
+  border: 2px solid #6c757d;
+  color: white;
 }
 
 .first-section_left .more-info:active {
@@ -85,6 +98,7 @@
 }
 
 .first-section_down .benefit {
+  font-size: 16px;
   width: 100%;
   max-width: 240px;
 }
