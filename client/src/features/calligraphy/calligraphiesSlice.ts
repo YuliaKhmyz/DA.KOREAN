@@ -43,7 +43,7 @@ export const loadCalligraphies = createAsyncThunk(
 export const deleteCalligraphy = createAsyncThunk(
   'calligraphies/deleteCalligraphies',
   async (id: CalligraphyId) => {
-    await api.getCalligraphy();
+    await api.deleteCalligraphy(id);
     return id;
   },
 );
@@ -73,11 +73,11 @@ const calligraphiesSlice = createSlice({
         state.calligraphies = state.calligraphies.filter(
           (callirgaphy) => callirgaphy.id !== action.payload,
         );
-      })
-
-      .addCase(logout.fulfilled, (state) => {
-        state.calligraphies = [];
       });
+
+    // .addCase(logout.fulfilled, (state) => {
+    //   state.calligraphies = [];
+    // });
   },
 });
 

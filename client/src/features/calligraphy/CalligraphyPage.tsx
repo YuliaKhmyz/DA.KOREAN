@@ -3,8 +3,13 @@ import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useAppDispatch } from '../../store';
-import { loadCalligraphies, createCalligraphy } from './calligraphiesSlice';
+import {
+  loadCalligraphies,
+  createCalligraphy,
+  deleteCalligraphy,
+} from './calligraphiesSlice';
 import { selectCalligraphies } from './selectors';
+import { CalligraphyId } from './types/Calligraphy';
 
 interface FormInput {
   title: string;
@@ -13,7 +18,7 @@ interface FormInput {
 }
 
 function CalligraphyPage(): JSX.Element {
-  const { register, handleSubmit } = useForm<FormInput>();
+  const { register, handleSubmit, reset } = useForm<FormInput>();
   const dispatch = useAppDispatch();
   const calligraphies = useSelector(selectCalligraphies);
 
@@ -21,8 +26,13 @@ function CalligraphyPage(): JSX.Element {
     console.log(data);
     const dispatchResult = await dispatch(createCalligraphy(data));
     if (createCalligraphy.fulfilled.match(dispatchResult)) {
-      // setNewTaskText('');
+      reset();
     }
+  };
+
+  const handleDelete = (id: CalligraphyId): void => {
+    dispatch(deleteCalligraphy(id));
+    console.log(id);
   };
 
   useEffect(() => {
@@ -121,6 +131,21 @@ function CalligraphyPage(): JSX.Element {
         </label>
         <button type="submit">Добавить</button>
       </form>
+      <h3>Список каллиграфий для админа</h3>
+      <div>
+        {calligraphies.map((calligraphy) => (
+          <div key={calligraphy.id}>
+            <h4>{calligraphy.koreantitle}</h4>
+            <p>{calligraphy.title}</p>
+            {/* <button type="button" onClick={}>
+              Редактировать
+            </button> */}
+            <button type="submit" onClick={() => handleDelete(calligraphy.id)}>
+              Удалить
+            </button>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

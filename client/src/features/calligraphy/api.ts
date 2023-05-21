@@ -22,7 +22,7 @@ export async function createCalligraphy(
 }
 
 export async function deleteCalligraphy(id: CalligraphyId): Promise<void> {
-  await fetch(`/api/callirgaphies/${id}`, {
+  await fetch(`/api/calligraphies/${id}`, {
     method: 'DELETE',
   });
 }
