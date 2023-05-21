@@ -8,12 +8,13 @@ module.exports = {
       [
         {
           link: 'https://drive.google.com/file/d/1bXqYRAR_8f0fCaEm80BqX0Q75VtD8YdJ/view?usp=drivesdk',
-          title: 'spring',
+          title: 'весна',
+          koreantitle: '봄',
           createdAt: new Date(),
           updatedAt: new Date(),
         },
       ],
-      {},
+      {}
     );
   },
 

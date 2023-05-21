@@ -24,11 +24,15 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.TEXT,
         allowNull: false,
       },
+      koreantitle: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+      },
     },
     {
       sequelize,
       modelName: 'CalligraphyCourse',
-    },
+    }
   );
   return CalligraphyCourse;
 };
