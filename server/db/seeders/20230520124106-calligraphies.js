@@ -13,8 +13,29 @@ module.exports = {
           createdAt: new Date(),
           updatedAt: new Date(),
         },
+        {
+          link: 'https://drive.google.com/u/0/uc?id=1YPYTlWwV7anTT-UVLybyCSn1uP2d8DZn&export=download',
+          title: 'лето',
+          koreantitle: '여름',
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          link: 'https://drive.google.com/u/0/uc?id=1YPYTlWwV7anTT-UVLybyCSn1uP2d8DZn&export=download',
+          title: 'осень',
+          koreantitle: '가을',
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          link: 'https://drive.google.com/u/0/uc?id=1YPYTlWwV7anTT-UVLybyCSn1uP2d8DZn&export=download',
+          title: 'зима',
+          koreantitle: '겨울',
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
       ],
-      {}
+      {},
     );
   },
 

@@ -13,18 +13,21 @@ calligraphyRouter.get('/', async (req, res) => {
 });
 
 calligraphyRouter.post('/', async (req, res) => {
-  if (req.body.title.trim() === '') {
-    return res
-      .status(422)
-      .json({ error: 'Заголовок задачи не должен быть пустым' });
+  if (
+    req.body.title.trim() === '' ||
+    req.body.link.trim() === '' ||
+    req.body.koreantitle.trim() === ''
+  ) {
+    return res.status(422).json({ error: 'Заполните все поля' });
   }
 
-  const task = await Task.create({
+  const calligraphy = await CalligraphyCourse.create({
     title: req.body.title,
-    user_id: req.session.userId,
+    link: req.body.link,
+    koreantitle: req.body.koreantitle,
   });
 
-  return res.status(201).json(task);
+  return res.status(201).json(calligraphy);
 });
 
 module.exports = calligraphyRouter;

@@ -9,12 +9,23 @@ const initialState: CalligraphiesState = {
   calligraphies: [],
 };
 
-// export const createCalligraphy = createAsyncThunk(
-//   'calligraphies/createCalligraphy',
-//   async (title: string, link: string) => {
-//     return api.createCalligraphy(title, link);
-//   },
-// );
+export const createCalligraphy = createAsyncThunk(
+  'calligraphies/createCalligraphy',
+  async ({
+    title,
+    link,
+    koreantitle,
+  }: {
+    title: string;
+    link: string;
+    koreantitle: string;
+  }) => {
+    if (!title.trim() || !link.trim() || !koreantitle.trim()) {
+      throw new Error('Заполните все поля');
+    }
+    return api.createCalligraphy(title, link, koreantitle);
+  },
+);
 
 export const loadCalligraphies = createAsyncThunk(
   'calligraphies/loadCalligraphies',
@@ -43,12 +54,10 @@ const calligraphiesSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      // .addCase(createTask.rejected, (state, action) => {
-      //   state.error = action.error.message;
-      // })
-      // .addCase(createTask.fulfilled, (state, action) => {
-      //   state.tasks.push(action.payload);
-      // })
+
+      .addCase(createCalligraphy.fulfilled, (state, action) => {
+        state.calligraphies.push(action.payload);
+      })
 
       .addCase(loadCalligraphies.fulfilled, (state, action) => {
         state.calligraphies = action.payload;

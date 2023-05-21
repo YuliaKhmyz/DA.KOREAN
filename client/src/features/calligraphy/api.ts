@@ -3,10 +3,11 @@ import Callirgaphy, { CalligraphyId } from './types/Calligraphy';
 export async function createCalligraphy(
   title: string,
   link: string,
+  koreantitle: string,
 ): Promise<Callirgaphy> {
-  const res = await fetch('/api/callirgaphies', {
+  const res = await fetch('/api/calligraphies', {
     method: 'POST',
-    body: JSON.stringify({ title, link }),
+    body: JSON.stringify({ title, link, koreantitle }),
     headers: {
       'Content-Type': 'application/json',
     },
