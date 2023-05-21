@@ -1,7 +1,12 @@
 import React from 'react';
+import Calligraphy from '../../Components/Calligraphy/Calligraphy';
 
 function MainPage() {
-  return <div>This is MainPage</div>;
+  return (
+    <div>
+      <Calligraphy />
+    </div>
+  );
 }
 
 export default MainPage;

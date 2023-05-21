@@ -36,7 +36,7 @@ function NavbarComponent({
         navigate('/');
       }
     },
-    [dispatch, navigate]
+    [dispatch, navigate],
   );
 
   useEffect(() => {
@@ -66,7 +66,7 @@ function NavbarComponent({
                 Каллиграфия (если нужно)
               </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="#calligraph">Каллиграфия</Nav.Link>
+            <Nav.Link href="/calligraphy">Каллиграфия</Nav.Link>
             <Nav.Link href="#blog">Блог</Nav.Link>
           </Nav>
           {showRegBtns && (
