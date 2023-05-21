@@ -1,5 +1,7 @@
-body {
+body #root {
   background-color: #ddd;
   color: #201a1a;
   position: relative;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
 }

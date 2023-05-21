@@ -1,3 +1,90 @@
+/* !Проблема со всеми местами, где необходимо использовать url(...) */
+/* @font-face {
+  font-family: 'SUIT';
+  font-weight: 500;
+  src: local('SUIT'), url('./fonts/SUIT-Medium.woff2') format('truetype');
+} */
+
 .fist-section {
   background-color: white;
+}
+
+.btn {
+  border-radius: 0;
+}
+
+.more-info {
+  color: #201a1a;
+  border-color: #201a1a;
+}
+
+.first-section_up {
+  display: flex;
+  justify-content: space-between;
+  margin: 0px 0px 60px 0px;
+}
+
+.first-section_left {
+  width: 100%;
+  max-width: 730px;
+}
+
+.first-section_left .title {
+  font-size: 60px;
+  text-transform: uppercase;
+  padding: 104px 0px 0px 0px;
+  margin: 0px 0px 35px 0px;
+}
+
+.first-section_left .description {
+  width: 100%;
+  max-width: 445px;
+  margin: 0px 0px 40px 0px;
+}
+
+.first-section_left .lesson-sign-up {
+  transition: 0.4s;
+  margin: 0px 24px 0px 0px;
+  background-color: #ffad00;
+}
+
+.first-section_left .lesson-sign-up:hover {
+  transition: 0.4s;
+  opacity: 0.7;
+}
+
+.first-section_left .lesson-sign-up:active {
+  opacity: 1;
+  background-color: #ff5e00;
+}
+
+.first-section_left .more-info:active {
+  background-color: #545763;
+}
+
+.first-section_right img {
+  width: 100%;
+  max-width: 400px;
+}
+
+.first-section_down ul {
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+}
+
+.first-section_down .li-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.first-section_down .li-wrapper img {
+  width: 20px;
+  height: 20px;
+  margin: 0px 20px 0px 0px;
+}
+
+.first-section_down .benefit {
+  width: 100%;
+  max-width: 240px;
 }
