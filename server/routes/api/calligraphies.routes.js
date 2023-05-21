@@ -5,7 +5,7 @@ calligraphyRouter.get('/', async (req, res) => {
   try {
     const calligraphies = await CalligraphyCourse.findAll({});
     res.json(calligraphies);
-    console.log('calligraphies', calligraphies);
+    // console.log('calligraphies', calligraphies);
   } catch (error) {
     console.error(error);
     // res.redirect('/error')
@@ -14,9 +14,7 @@ calligraphyRouter.get('/', async (req, res) => {
 
 calligraphyRouter.post('/', async (req, res) => {
   if (req.body.title.trim() === '') {
-    return res
-      .status(422)
-      .json({ error: 'Заголовок задачи не должен быть пустым' });
+    return res.status(422).json({ error: 'Заголовок задачи не должен быть пустым' });
   }
 
   const task = await Task.create({

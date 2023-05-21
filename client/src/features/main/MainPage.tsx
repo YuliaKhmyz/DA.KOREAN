@@ -1,11 +1,16 @@
 import React from 'react';
 import Calligraphy from '../../Components/Calligraphy/Calligraphy';
+import Section from '../../Components/Section/Section';
+import FirstSection from '../../Components/FirstSection/FirstSection';
 
-function MainPage() {
+function MainPage(): JSX.Element {
   return (
-    <div>
+    <>
+      <Section haveHeader>
+        <FirstSection />
+      </Section>
       <Calligraphy />
-    </div>
+    </>
   );
 }
 

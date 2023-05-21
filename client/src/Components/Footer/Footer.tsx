@@ -7,11 +7,7 @@ function Footer(): JSX.Element {
   const DROP_DIRECTION = 'up';
   return (
     <footer className="footer">
-      <NavbarComponent
-        showRegBtns={false}
-        dropDirection={DROP_DIRECTION}
-        showSocials
-      />
+      <NavbarComponent showLogo={false} showRegBtns={false} dropDirection={DROP_DIRECTION} showSocials />
     </footer>
   );
 }
