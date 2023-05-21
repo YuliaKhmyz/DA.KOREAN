@@ -98,7 +98,7 @@ authApiRouter.get('/logout', async (req, res) => {
 authApiRouter.get('/check', async (req, res) => {
   try {
     const userSession = req.session.userId;
-    console.log('userSession', userSession);
+    // console.log('userSession', userSession);
     if (userSession) {
       const { dataValues: user } = await User.findOne({
         where: { id: userSession },

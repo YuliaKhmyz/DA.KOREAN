@@ -6,6 +6,7 @@ const app = express();
 const PORT = process.env.PORT ?? 5000;
 
 const authApiRouter = require('./routes/api/auth.routes');
+const calligraphiesApiRouter = require('./routes/api/calligraphies.routes');
 
 const serverConfig = require('./config/serverConfig');
 const sessionConfig = require('./config/session');
@@ -14,6 +15,7 @@ serverConfig(app);
 
 app.use(session(sessionConfig));
 app.use('/api/auth', authApiRouter);
+app.use('/api/calligraphies', calligraphiesApiRouter);
 
 try {
   app.listen(PORT, () => {
