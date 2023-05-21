@@ -7,8 +7,8 @@ import './Navbar.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { DropDirection } from 'react-bootstrap/esm/DropdownContext';
 import { useSelector } from 'react-redux';
-import { selectAuthChecked, selectUser } from '../../features/auth/selectors';
-import { getUser, logout } from '../../features/auth/authSlice';
+import { selectAuthChecked, selectUser } from '../auth/selectors';
+import { getUser, logout } from '../auth/authSlice';
 import { useAppDispatch } from '../../store';
 
 type NavbarComponentProps = {
@@ -39,8 +39,6 @@ function NavbarComponent({
     [dispatch, navigate],
   );
 
-  console.log('1111', authChecked);
-
   useEffect(() => {
     dispatch(getUser());
   }, [dispatch]);
@@ -49,7 +47,7 @@ function NavbarComponent({
     <Navbar>
       <Container fluid="sm">
         <Navbar.Brand className="logo-text" href="#home">
-          DA.KOREAN
+          <img src="../images/logo.png" alt="logo_image" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

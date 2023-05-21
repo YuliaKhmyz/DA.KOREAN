@@ -24,7 +24,6 @@ function Login(): JSX.Element {
         password: data.password,
       })
     );
-    console.log(dispatchResult);
 
     if (login.fulfilled.match(dispatchResult)) {
       navigate('/');
@@ -34,8 +33,6 @@ function Login(): JSX.Element {
       }
     }
   };
-
-  console.log(error);
 
   return (
     <form className="auth-form" onSubmit={handleSubmit(onSubmit)}>
@@ -53,7 +50,7 @@ function Login(): JSX.Element {
           type="email"
           id="email-input"
           placeholder="Введите адрес электронной почты"
-          {...register('email', { required: true })}
+          {...register('email')}
         />
       </div>
       <div className="mb-3">
@@ -64,7 +61,7 @@ function Login(): JSX.Element {
           type="password"
           id="password-input"
           placeholder="Введите пароль"
-          {...register('password', { required: true })}
+          {...register('password')}
         />
       </div>
       <button type="submit" className="btn btn-primary">

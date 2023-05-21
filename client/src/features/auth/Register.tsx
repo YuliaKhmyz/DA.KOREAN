@@ -2,7 +2,9 @@
 import React, { useCallback } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import { registerUser, resetRegisterFormError } from './authSlice';
+import { useSelector } from 'react-redux';
+import { registerUser } from './authSlice';
+import { selectRegisterFormError } from './selectors';
 import { useAppDispatch } from '../../store';
 
 type FormInput = {
@@ -16,6 +18,7 @@ function Register(): JSX.Element {
   const { register, handleSubmit } = useForm<FormInput>();
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const error = useSelector(selectRegisterFormError);
 
   const onSubmit: SubmitHandler<FormInput> = React.useCallback(
     async (data) => {
@@ -38,6 +41,11 @@ function Register(): JSX.Element {
     // eslint-disable-next-line @typescript-eslint/no-misused-promises
     <form className="auth-form" onSubmit={handleSubmit(onSubmit)}>
       <h2>Регистрация</h2>
+      {error && (
+        <div className="invalid-feedback mb-3" style={{ display: 'block' }}>
+          {error}
+        </div>
+      )}
       <div className="mb-3">
         <label htmlFor="name-input" className="form-label">
           Имя
@@ -46,7 +54,7 @@ function Register(): JSX.Element {
             type="text"
             id="name-input"
             // eslint-disable-next-line react/jsx-props-no-spreading
-            {...register('name', { required: true })}
+            {...register('name')}
           />
         </label>
       </div>
@@ -57,7 +65,7 @@ function Register(): JSX.Element {
             type="email"
             id="email-input"
             placeholder="Введите адрес электронной почты"
-            {...register('email', { required: true })}
+            {...register('email')}
           />
         </label>
       </div>
@@ -68,7 +76,7 @@ function Register(): JSX.Element {
             type="password"
             id="password-input"
             placeholder="Введите пароль"
-            {...register('password', { required: true })}
+            {...register('password')}
           />
         </label>
       </div>
@@ -79,7 +87,7 @@ function Register(): JSX.Element {
             type="password"
             id="password-repeat-input"
             placeholder="Введите пароль повторно"
-            {...register('password2', { required: true })}
+            {...register('password2')}
           />
         </label>
       </div>

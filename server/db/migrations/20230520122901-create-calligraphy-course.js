@@ -17,6 +17,10 @@ module.exports = {
         type: Sequelize.TEXT,
         allowNull: false,
       },
+      koreantitle: {
+        type: Sequelize.TEXT,
+        allowNull: false,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

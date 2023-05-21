@@ -1,5 +1,5 @@
 import React from 'react';
-import NavbarComponent from '../Navbar/Navbar';
+import NavbarComponent from '../../features/navbar/Navbar';
 import './header.css';
 
 function Header(): JSX.Element {
@@ -8,7 +8,11 @@ function Header(): JSX.Element {
 
   return (
     <header className="header">
-      <NavbarComponent showRegBtns dropDirection={DROP_DIRECTION} showSocials={SHOW_SOCIALS} />
+      <NavbarComponent
+        showRegBtns
+        dropDirection={DROP_DIRECTION}
+        showSocials={SHOW_SOCIALS}
+      />
     </header>
   );
 }
