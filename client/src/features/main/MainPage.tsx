@@ -1,5 +1,4 @@
 import React from 'react';
-import Calligraphy from '../../Components/Calligraphy/Calligraphy';
 import Section from '../../Components/Section/Section';
 import FirstSection from '../../Components/FirstSection/FirstSection';
 import CoursesSection from '../../Components/CoursesSection/CoursesSection';
@@ -8,7 +7,7 @@ import CalligraphySection from '../../Components/CalligraphySection/CalligraphyS
 function MainPage(): JSX.Element {
   return (
     <>
-      <Section haveHeader>
+      <Section haveHeader={false}>
         <FirstSection />
       </Section>
       <Section haveHeader={false}>
@@ -17,7 +16,6 @@ function MainPage(): JSX.Element {
       <Section haveHeader={false}>
         <CalligraphySection />
       </Section>
-      <Calligraphy />
     </>
   );
 }

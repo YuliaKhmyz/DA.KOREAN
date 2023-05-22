@@ -2,6 +2,10 @@ import React from 'react';
 import './calligraphySection.css';
 import { Button, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import hierog_spring from './hierog_spring.svg';
+import hierog_summer from './hierog_summer.svg';
+import hierog_autumn from './hierog_autumn.svg';
+import hierog_winter from './hierog_winter.svg';
 
 function CalligraphySection(): JSX.Element {
   return (
@@ -12,25 +16,25 @@ function CalligraphySection(): JSX.Element {
         <div className="hieroglyphs">
           <div className="hieroglyph">
             <div className="hieroglyph-korean">
-              <img src="./images/hierog_spring.svg" alt="иероглиф весна" />
+              <img src={hierog_spring} alt="иероглиф весна" />
             </div>
             <div className="hieroglyph-russian">весна</div>
           </div>
           <div className="hieroglyph">
             <div className="hieroglyph-korean">
-              <img src="./images/hierog_summer.svg" alt="иероглиф лето" />
+              <img src={hierog_summer} alt="иероглиф лето" />
             </div>
             <div className="hieroglyph-russian">лето</div>
           </div>
           <div className="hieroglyph">
             <div className="hieroglyph-korean">
-              <img src="./images/hierog_autumn.svg" alt="иероглиф осень" />
+              <img src={hierog_autumn} alt="иероглиф осень" />
             </div>
             <div className="hieroglyph-russian">осень</div>
           </div>
           <div className="hieroglyph">
             <div className="hieroglyph-korean">
-              <img src="./images/hierog_winter.svg" alt="иероглиф зима" />
+              <img src={hierog_winter} alt="иероглиф зима" />
             </div>
             <div className="hieroglyph-russian">зима</div>
           </div>

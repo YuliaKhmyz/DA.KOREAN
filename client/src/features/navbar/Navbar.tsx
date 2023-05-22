@@ -10,6 +10,7 @@ import { useSelector } from 'react-redux';
 import { selectAuthChecked, selectUser } from '../auth/selectors';
 import { getUser, logout } from '../auth/authSlice';
 import { useAppDispatch } from '../../store';
+import logo from './logo.svg';
 
 type NavbarComponentProps = {
   showLogo: boolean;
@@ -45,7 +46,7 @@ function NavbarComponent({ showLogo, showRegBtns, dropDirection, showSocials }: 
       <Container>
         {showLogo && (
           <Link to="/" className="logo-text">
-            <img src="../images/logo.svg" alt="logo_image" />
+            <img src={logo} alt="logo_image" />
           </Link>
         )}
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -107,7 +108,6 @@ function NavbarComponent({ showLogo, showRegBtns, dropDirection, showSocials }: 
             </svg>
           </Nav.Link>
         </Nav>
-        
       )}
     </Navbar>
   );
