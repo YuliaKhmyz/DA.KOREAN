@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import { useAppDispatch } from '../../store';
-import { loadCalligraphies } from './calligraphiesSlice';
+import { loadCalligraphies, buyCalligraphy } from './calligraphiesSlice';
 import { useSelector } from 'react-redux';
 import { selectCalligraphies } from './selectors';
+import { CalligraphyId } from './types/Calligraphy';
 
-function CalligraphyPage() {
+function CalligraphyPage(): JSX.Element {
   const dispatch = useAppDispatch();
   const calligraphies = useSelector(selectCalligraphies);
 
@@ -12,6 +13,11 @@ function CalligraphyPage() {
     dispatch(loadCalligraphies());
   }, [dispatch]);
   console.log(calligraphies);
+
+  const handleBuyCalligraphy = (id: CalligraphyId): void => {
+    dispatch(buyCalligraphy(id));
+    console.log(id);
+  };
 
   return (
     <div>
@@ -46,8 +52,12 @@ function CalligraphyPage() {
         {calligraphies.map((calligraphy) => (
           <div key={calligraphy.id}>
             <h4>{calligraphy.title}</h4>
-            <button>
-              <a href={calligraphy.link}>Купить</a>
+            <button
+              type="button"
+              onClick={() => handleBuyCalligraphy(calligraphy.id)}
+            >
+              Купить
+              {/* <a href={calligraphy.link}>Купить</a> */}
             </button>
           </div>
         ))}

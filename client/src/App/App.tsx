@@ -7,6 +7,7 @@ import './App.css';
 import Layout from './Layout';
 import CalligraphyPage from '../features/calligraphy/CalligraphyPage';
 import MainPage from '../features/main/MainPage';
+import MyPage from '../features/userpage/UserPage';
 
 function App(): JSX.Element {
   return (
@@ -17,6 +18,7 @@ function App(): JSX.Element {
           <Route path="/auth/login" element={<Login />} />
           <Route path="/auth/register" element={<Register />} />
           <Route path="/calligraphy" element={<CalligraphyPage />} />
+          <Route path="/mypage" element={<MyPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

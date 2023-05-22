@@ -4,7 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import './Navbar.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { DropDirection } from 'react-bootstrap/esm/DropdownContext';
 import { useSelector } from 'react-redux';
 import { selectAuthChecked, selectUser } from '../auth/selectors';
@@ -36,7 +36,7 @@ function NavbarComponent({
         navigate('/');
       }
     },
-    [dispatch, navigate],
+    [dispatch, navigate]
   );
 
   useEffect(() => {
@@ -74,6 +74,9 @@ function NavbarComponent({
               {user && (
                 <div className=" d-flex">
                   <div className="user-name">어서 오세요, {user.name}님!</div>
+                  <div className="user-name">
+                    <Nav.Link href="/mypage">Личный кабинет</Nav.Link>
+                  </div>
                   <Nav.Link onClick={handleLogout} href="/">
                     Выйти
                   </Nav.Link>

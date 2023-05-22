@@ -2,7 +2,7 @@ import Callirgaphy, { CalligraphyId } from './types/Calligraphy';
 
 export async function createCalligraphy(
   title: string,
-  link: string,
+  link: string
 ): Promise<Callirgaphy> {
   const res = await fetch('/api/callirgaphies', {
     method: 'POST',
@@ -29,4 +29,15 @@ export async function deleteCalligraphy(id: CalligraphyId): Promise<void> {
 export async function getCalligraphy(): Promise<Callirgaphy[]> {
   const result = await fetch('/api/calligraphies');
   return result.json();
+}
+
+export async function buyCalligraphy(id: CalligraphyId): Promise<void> {
+  const res = await fetch('/api/calligraphies/myCalligraphy', {
+    method: 'POST',
+    body: JSON.stringify({ id }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  return;
 }

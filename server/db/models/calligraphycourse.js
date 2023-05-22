@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate({ User }) {
       this.belongsToMany(User, {
         foreignKey: 'user_id',
-        through: 'CalligraphyLessons',
+        through: 'BoughtCalligraphies',
       });
     }
   }
