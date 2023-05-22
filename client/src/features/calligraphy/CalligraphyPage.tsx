@@ -1,11 +1,11 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useEffect, useState } from 'react';
-import { loadCalligraphies, buyCalligraphy } from './calligraphiesSlice';
 
 import { useSelector } from 'react-redux';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useAppDispatch } from '../../store';
 import {
+  buyCalligraphy,
   loadCalligraphies,
   createCalligraphy,
   deleteCalligraphy,

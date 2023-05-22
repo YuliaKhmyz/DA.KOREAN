@@ -11,9 +11,7 @@ function CalligraphyItem({
     <div>
       <h4>{calligraphy.koreantitle}</h4>
       <p>{calligraphy.title}</p>
-      <button type="button">
-        <a href={calligraphy.link}>Купить</a>
-      </button>
+      <button type="button">Купить</button>
     </div>
   );
 }
