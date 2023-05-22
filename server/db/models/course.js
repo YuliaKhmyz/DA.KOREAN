@@ -26,6 +26,9 @@ module.exports = (sequelize, DataTypes) => {
       description: {
         type: DataTypes.TEXT,
       },
+      private_description: {
+        type: DataTypes.TEXT,
+      },
       price: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -42,7 +45,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: 'Course',
-    }
+    },
   );
   return Course;
 };
