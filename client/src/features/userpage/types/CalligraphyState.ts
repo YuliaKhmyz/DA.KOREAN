@@ -1,4 +1,4 @@
-import { Calligraphy } from './Calligraphy';
+import Calligraphy from './Calligraphy';
 
 export default interface CalligraphiesState {
   calligraphies: Calligraphy[];

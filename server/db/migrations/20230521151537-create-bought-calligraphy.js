@@ -2,12 +2,18 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('CalligraphyLessons', {
-      galligraphy_course_id: {
-        type: Sequelize.BIGINT,
+    await queryInterface.createTable('BoughtCalligraphies', {
+      id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: Sequelize.INTEGER,
+      },
+      calligraphy_course_id: {
+        type: Sequelize.INTEGER,
       },
       user_id: {
-        type: Sequelize.BIGINT,
+        type: Sequelize.INTEGER,
       },
       createdAt: {
         allowNull: false,
@@ -20,6 +26,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('CalligraphyLessons');
+    await queryInterface.dropTable('BoughtCalligraphies');
   },
 };
