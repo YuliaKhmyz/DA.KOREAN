@@ -74,7 +74,9 @@ authApiRouter.post('/login', async (req, res) => {
           .json({ error: 'Такого пользователя нет, либо пароли не совпадают' });
       }
     } else {
-      res.status(403).json({ message: 'Заполните все поля' });
+      res
+        .status(403)
+        .json({ error: 'Такого пользователя нет, либо пароли не совпадают' });
       return;
     }
   } catch (error) {

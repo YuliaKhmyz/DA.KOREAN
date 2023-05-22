@@ -1,5 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useEffect, useState } from 'react';
+import { loadCalligraphies, buyCalligraphy } from './calligraphiesSlice';
+
 import { useSelector } from 'react-redux';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useAppDispatch } from '../../store';
@@ -43,6 +45,11 @@ function CalligraphyPage(): JSX.Element {
     dispatch(loadCalligraphies());
   }, [dispatch]);
   console.log(calligraphies);
+
+  const handleBuyCalligraphy = (id: CalligraphyId): void => {
+    dispatch(buyCalligraphy(id));
+    console.log(id);
+  };
 
   return (
     <div>

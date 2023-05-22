@@ -1,13 +1,11 @@
 const calligraphyRouter = require('express').Router();
-const { CalligraphyCourse } = require('../../db/models');
+const { CalligraphyCourse, BoughtCalligraphy } = require('../../db/models');
 
 calligraphyRouter.get('/', async (req, res) => {
   try {
     const calligraphies = await CalligraphyCourse.findAll({});
     res.json(calligraphies);
-    // console.log('calligraphies', calligraphies);
   } catch (error) {
-    console.error(error);
     // res.redirect('/error')
   }
 });
@@ -32,10 +30,8 @@ calligraphyRouter.post('/', async (req, res) => {
 
 calligraphyRouter.delete('/:id', async (req, res, next) => {
   try {
-    // удаляем задачу с заданным id
     const removeCalligraphy = await CalligraphyCourse.destroy({
       where: {
-        // в req.params.id ляжет соответсвующая часть URL
         id: Number(req.params.id),
       },
     });
@@ -72,6 +68,18 @@ calligraphyRouter.put('/:id', async (req, res, next) => {
     res.json({ success: true });
   } catch (er) {
     next(er);
+
+calligraphyRouter.post('/myCalligraphy', async (req, res) => {
+  const { id } = req.body;
+  const previouslyBoughtCalligraphy = await BoughtCalligraphy.findOne({
+    where: { calligraphy_course_id: id, user_id: req.session.userId },
+  });
+
+  if (!previouslyBoughtCalligraphy) {
+    await BoughtCalligraphy.create({
+      calligraphy_course_id: req.body.id,
+      user_id: req.session.userId,
+    });
   }
 });
 

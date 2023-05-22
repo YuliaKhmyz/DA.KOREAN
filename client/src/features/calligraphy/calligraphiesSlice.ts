@@ -26,10 +26,9 @@ export const createCalligraphy = createAsyncThunk(
     return api.createCalligraphy(title, link, koreantitle);
   },
 );
-
 export const loadCalligraphies = createAsyncThunk(
   'calligraphies/loadCalligraphies',
-  () => api.getCalligraphy(),
+  () => api.getCalligraphy()
 );
 
 export const updateCalligraphy = createAsyncThunk(
@@ -45,7 +44,15 @@ export const deleteCalligraphy = createAsyncThunk(
   async (id: CalligraphyId) => {
     await api.deleteCalligraphy(id);
     return id;
-  },
+  }
+);
+
+export const buyCalligraphy = createAsyncThunk(
+  'calligraphies/buyCalligraphy',
+  async (id: CalligraphyId) => {
+    await api.buyCalligraphy(id);
+    return id;
+  }
 );
 
 const calligraphiesSlice = createSlice({
@@ -71,7 +78,7 @@ const calligraphiesSlice = createSlice({
 
       .addCase(deleteCalligraphy.fulfilled, (state, action) => {
         state.calligraphies = state.calligraphies.filter(
-          (callirgaphy) => callirgaphy.id !== action.payload,
+          (callirgaphy) => callirgaphy.id !== action.payload
         );
       });
 
