@@ -1,0 +1,7 @@
+.hidden-element {
+  display: none;
+}
+
+.hidden-element.active {
+  display: block;
+}

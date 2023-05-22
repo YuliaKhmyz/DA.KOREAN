@@ -46,6 +46,29 @@ calligraphyRouter.delete('/:id', async (req, res, next) => {
   }
 });
 
+calligraphyRouter.put('/:id', async (req, res, next) => {
+  try {
+    // достаём из БД задачу с заданным id
+    const calligraphy = await CalligraphyCourse.findByPk(Number(req.params.id));
+    console.log('calligraphy', calligraphy);
+    if (!calligraphy) {
+      res.status(404).json({ success: false, message: 'Нет такого объекта' });
+
+      return;
+    }
+
+    // меняем состояние задачи и сохраняем в БД
+    if ('title' in req.body) calligraphy.title = req.body.title;
+    if ('koreantitle' in req.body)
+      calligraphy.koreantitle = req.body.koreantitle;
+    if ('link' in req.body) calligraphy.link = req.body.link;
+
+    await calligraphy.save();
+
+    res.json({ success: true });
+  } catch (er) {
+    next(er);
+
 calligraphyRouter.post('/myCalligraphy', async (req, res) => {
   const { id } = req.body;
   const previouslyBoughtCalligraphy = await BoughtCalligraphy.findOne({

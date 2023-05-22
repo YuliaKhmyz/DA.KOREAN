@@ -1,12 +1,13 @@
-import Callirgaphy, { CalligraphyId } from './types/Calligraphy';
+import { CalligraphyId, Calligraphy } from './types/Calligraphy';
 
 export async function createCalligraphy(
   title: string,
-  link: string
-): Promise<Callirgaphy> {
-  const res = await fetch('/api/callirgaphies', {
+  link: string,
+  koreantitle: string,
+): Promise<Calligraphy> {
+  const res = await fetch('/api/calligraphies', {
     method: 'POST',
-    body: JSON.stringify({ title, link }),
+    body: JSON.stringify({ title, link, koreantitle }),
     headers: {
       'Content-Type': 'application/json',
     },
@@ -20,13 +21,25 @@ export async function createCalligraphy(
   return res.json();
 }
 
+export async function updateCalligraphy(
+  calligraphy: Calligraphy,
+): Promise<void> {
+  await fetch(`/api/calligraphies/${calligraphy.id}`, {
+    method: 'PUT',
+    body: JSON.stringify(calligraphy),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+}
+
 export async function deleteCalligraphy(id: CalligraphyId): Promise<void> {
-  await fetch(`/api/callirgaphies/${id}`, {
+  await fetch(`/api/calligraphies/${id}`, {
     method: 'DELETE',
   });
 }
 
-export async function getCalligraphy(): Promise<Callirgaphy[]> {
+export async function getCalligraphy(): Promise<Calligraphy[]> {
   const result = await fetch('/api/calligraphies');
   return result.json();
 }

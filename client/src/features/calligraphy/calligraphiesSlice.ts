@@ -1,7 +1,7 @@
 // tasks/tasksSlice.ts
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { logout } from '../auth/authSlice';
-import Calligraphy, { CalligraphyId } from './types/Calligraphy';
+import { CalligraphyId, Calligraphy } from './types/Calligraphy';
 import CalligraphiesState from './types/CalligraphyState';
 import * as api from './api';
 
@@ -9,15 +9,40 @@ const initialState: CalligraphiesState = {
   calligraphies: [],
 };
 
+export const createCalligraphy = createAsyncThunk(
+  'calligraphies/createCalligraphy',
+  async ({
+    title,
+    link,
+    koreantitle,
+  }: {
+    title: string;
+    link: string;
+    koreantitle: string;
+  }) => {
+    if (!title.trim() || !link.trim() || !koreantitle.trim()) {
+      throw new Error('Заполните все поля');
+    }
+    return api.createCalligraphy(title, link, koreantitle);
+  },
+);
 export const loadCalligraphies = createAsyncThunk(
   'calligraphies/loadCalligraphies',
   () => api.getCalligraphy()
 );
 
+export const updateCalligraphy = createAsyncThunk(
+  'calligraphies/updateCalligraphy',
+  async (newCalligraphy: Calligraphy) => {
+    await api.updateCalligraphy(newCalligraphy);
+    return newCalligraphy;
+  },
+);
+
 export const deleteCalligraphy = createAsyncThunk(
-  'calligraphies/deleteCalligraphies',
+  'calligraphies/deleteCalligraphy',
   async (id: CalligraphyId) => {
-    await api.getCalligraphy();
+    await api.deleteCalligraphy(id);
     return id;
   }
 );
@@ -37,19 +62,29 @@ const calligraphiesSlice = createSlice({
   extraReducers: (builder) => {
     builder
 
+      .addCase(createCalligraphy.fulfilled, (state, action) => {
+        state.calligraphies.push(action.payload);
+      })
+
       .addCase(loadCalligraphies.fulfilled, (state, action) => {
         state.calligraphies = action.payload;
+      })
+
+      .addCase(updateCalligraphy.fulfilled, (state, action) => {
+        state.calligraphies = state.calligraphies.map((calligraphy) =>
+          calligraphy.id === action.payload.id ? action.payload : calligraphy,
+        );
       })
 
       .addCase(deleteCalligraphy.fulfilled, (state, action) => {
         state.calligraphies = state.calligraphies.filter(
           (callirgaphy) => callirgaphy.id !== action.payload
         );
-      })
-
-      .addCase(logout.fulfilled, (state) => {
-        state.calligraphies = [];
       });
+
+    // .addCase(logout.fulfilled, (state) => {
+    //   state.calligraphies = [];
+    // });
   },
 });
 
