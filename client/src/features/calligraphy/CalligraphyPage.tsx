@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useAppDispatch } from '../../store';
@@ -7,9 +7,13 @@ import {
   loadCalligraphies,
   createCalligraphy,
   deleteCalligraphy,
+  updateCalligraphy,
 } from './calligraphiesSlice';
 import { selectCalligraphies } from './selectors';
-import { CalligraphyId } from './types/Calligraphy';
+import { CalligraphyId, Calligraphy } from './types/Calligraphy';
+import './calligraphyPage.css';
+import CalligraphyItem from './CalligraphyItem';
+import ChangeCalligraphyItem from './ChangeCalligraphyItem';
 
 interface FormInput {
   title: string;
@@ -21,6 +25,11 @@ function CalligraphyPage(): JSX.Element {
   const { register, handleSubmit, reset } = useForm<FormInput>();
   const dispatch = useAppDispatch();
   const calligraphies = useSelector(selectCalligraphies);
+  // const [showForm, setShowForm] = useState(false);
+  const [elementId, setElementId] = useState<null | number>(null);
+  const [changeKoreanTitle, setChangeKoreanTitle] = useState('');
+  const [changeTitle, setChangechangeTitle] = useState('');
+  const [changeLink, setChangeLink] = useState('');
 
   const onSubmit: SubmitHandler<FormInput> = async (data) => {
     console.log(data);
@@ -33,6 +42,23 @@ function CalligraphyPage(): JSX.Element {
   const handleDelete = (id: CalligraphyId): void => {
     dispatch(deleteCalligraphy(id));
     console.log(id);
+  };
+
+  const handleUpdate = (newCalligraphy: Calligraphy): void => {
+    console.log(newCalligraphy);
+
+    // dispatch(updateCalligraphy(newCalligraphy));
+    // console.log('update');
+  };
+
+  const addInput = (id: CalligraphyId): void => {
+    calligraphies.filter((calligraphy) => {
+      if (calligraphy.id === id) {
+        console.log('id', id);
+        // setShowForm((prev) => !prev);
+        setElementId(id);
+      }
+    });
   };
 
   useEffect(() => {
@@ -89,11 +115,7 @@ function CalligraphyPage(): JSX.Element {
       <div>
         {calligraphies.map((calligraphy) => (
           <div key={calligraphy.id}>
-            <h4>{calligraphy.koreantitle}</h4>
-            <p>{calligraphy.title}</p>
-            <button type="button">
-              <a href={calligraphy.link}>Купить</a>
-            </button>
+            <CalligraphyItem calligraphy={calligraphy} />
           </div>
         ))}
       </div>
@@ -132,17 +154,15 @@ function CalligraphyPage(): JSX.Element {
         <button type="submit">Добавить</button>
       </form>
       <h3>Список каллиграфий для админа</h3>
+
       <div>
         {calligraphies.map((calligraphy) => (
           <div key={calligraphy.id}>
-            <h4>{calligraphy.koreantitle}</h4>
-            <p>{calligraphy.title}</p>
-            {/* <button type="button" onClick={}>
-              Редактировать
-            </button> */}
-            <button type="submit" onClick={() => handleDelete(calligraphy.id)}>
-              Удалить
-            </button>
+            <ChangeCalligraphyItem
+              calligraphy={calligraphy}
+              handleDelete={() => handleDelete(calligraphy.id)}
+              handleUpdate={() => handleUpdate(calligraphy)}
+            />
           </div>
         ))}
       </div>

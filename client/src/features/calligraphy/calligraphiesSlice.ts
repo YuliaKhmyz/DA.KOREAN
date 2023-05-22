@@ -1,7 +1,7 @@
 // tasks/tasksSlice.ts
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { logout } from '../auth/authSlice';
-import Calligraphy, { CalligraphyId } from './types/Calligraphy';
+import { CalligraphyId, Calligraphy } from './types/Calligraphy';
 import CalligraphiesState from './types/CalligraphyState';
 import * as api from './api';
 
@@ -32,16 +32,16 @@ export const loadCalligraphies = createAsyncThunk(
   () => api.getCalligraphy(),
 );
 
-// export const updateTask = createAsyncThunk(
-//   'tasks/updateTask',
-//   async (newTask: Task) => {
-//     await api.updateTask(newTask);
-//     return newTask;
-//   },
-// );
+export const updateCalligraphy = createAsyncThunk(
+  'calligraphies/updateCalligraphy',
+  async (newCalligraphy: Calligraphy) => {
+    await api.updateCalligraphy(newCalligraphy);
+    return newCalligraphy;
+  },
+);
 
 export const deleteCalligraphy = createAsyncThunk(
-  'calligraphies/deleteCalligraphies',
+  'calligraphies/deleteCalligraphy',
   async (id: CalligraphyId) => {
     await api.deleteCalligraphy(id);
     return id;
@@ -63,11 +63,11 @@ const calligraphiesSlice = createSlice({
         state.calligraphies = action.payload;
       })
 
-      // .addCase(updateTask.fulfilled, (state, action) => {
-      //   state.tasks = state.tasks.map((task) =>
-      //     task.id === action.payload.id ? action.payload : task,
-      //   );
-      // })
+      .addCase(updateCalligraphy.fulfilled, (state, action) => {
+        state.calligraphies = state.calligraphies.map((calligraphy) =>
+          calligraphy.id === action.payload.id ? action.payload : calligraphy,
+        );
+      })
 
       .addCase(deleteCalligraphy.fulfilled, (state, action) => {
         state.calligraphies = state.calligraphies.filter(
