@@ -8,7 +8,7 @@ const BACKGROUNDS_COLORS = ['#FF5E00', '#FFAD00', '#005074', '#97B6C2'];
 function CoursesSection(): JSX.Element {
   return (
     <Container style={{ height: '100vh' }}>
-      <div className="column-content-container">
+      <div className="courses column-content-container">
         <h2 className="courses-title">курсы</h2>
         <div className="courses">
           <div key={1} className="course" style={{ backgroundColor: BACKGROUNDS_COLORS[0] }}>
