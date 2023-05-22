@@ -1,14 +1,27 @@
 import { Course, CourseId } from './types/Course';
 
 export async function createCourse(
-  title: string,
-  description: string,
-  private_description: string,
+  main_title: string,
+  main_description: string,
+  start_title: string,
+  start_description: string,
+  condition_title: string,
+  condition_description: string,
+  price_title: string,
   price: number,
 ): Promise<Course> {
   const res = await fetch('/api/courses', {
     method: 'POST',
-    body: JSON.stringify({ title, description, private_description, price }),
+    body: JSON.stringify({
+      main_title,
+      main_description,
+      start_title,
+      start_description,
+      condition_title,
+      condition_description,
+      price_title,
+      price,
+    }),
     headers: {
       'Content-Type': 'application/json',
     },

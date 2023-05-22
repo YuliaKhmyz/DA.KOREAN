@@ -1,6 +1,6 @@
 import React from 'react';
 
-function CoursesPage() {
+function CoursesPage(): JSX.Element {
   return <div></div>;
 }
 

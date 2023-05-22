@@ -2,9 +2,13 @@ import { type } from 'os';
 
 export type Course = {
   id: number;
-  title: string;
-  description: string;
-  private_description: string;
+  main_title: string;
+  main_description: string;
+  start_title: string;
+  start_description: string;
+  condition_title: string;
+  condition_description: string;
+  price_title: string;
   price: number;
 };
 

@@ -12,20 +12,37 @@ const initialState: CoursesState = {
 export const createCourse = createAsyncThunk(
   'courses/createCourse',
   async ({
-    title,
-    description,
-    private_description,
+    main_title,
+    main_description,
+    start_title,
+    start_description,
+    condition_title,
+    condition_description,
+    price_title,
     price,
   }: {
-    title: string;
-    description: string;
-    private_description: string;
+    main_title: string;
+    main_description: string;
+    start_title: string;
+    start_description: string;
+    condition_title: string;
+    condition_description: string;
+    price_title: string;
     price: number;
   }) => {
-    if (!title.trim() || !description.trim() || !private_description.trim()) {
+    if (!main_title.trim() || !main_description.trim()) {
       throw new Error('Заполните все поля');
     }
-    return api.createCourse(title, description, private_description, price);
+    return api.createCourse(
+      main_title,
+      main_description,
+      start_title,
+      start_description,
+      condition_title,
+      condition_description,
+      price_title,
+      price,
+    );
   },
 );
 export const loadCourses = createAsyncThunk('courses/loadCourses', () =>

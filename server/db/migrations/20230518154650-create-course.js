@@ -9,14 +9,28 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      title: {
+      main_title: {
         type: Sequelize.TEXT,
         allowNull: false,
       },
-      description: {
+      main_description: {
         type: Sequelize.TEXT,
       },
-      private_description: {
+      start_title: {
+        type: Sequelize.TEXT,
+        allowNull: false,
+      },
+      start_description: {
+        type: Sequelize.TEXT,
+      },
+      condition_title: {
+        type: Sequelize.TEXT,
+        allowNull: false,
+      },
+      condition_description: {
+        type: Sequelize.TEXT,
+      },
+      price_title: {
         type: Sequelize.TEXT,
       },
       price: {

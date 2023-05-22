@@ -19,14 +19,28 @@ module.exports = (sequelize, DataTypes) => {
   }
   Course.init(
     {
-      title: {
+      main_title: {
         type: DataTypes.TEXT,
         allowNull: false,
       },
-      description: {
+      main_description: {
         type: DataTypes.TEXT,
       },
-      private_description: {
+      start_title: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+      },
+      start_description: {
+        type: DataTypes.TEXT,
+      },
+      condition_title: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+      },
+      condition_description: {
+        type: DataTypes.TEXT,
+      },
+      price_title: {
         type: DataTypes.TEXT,
       },
       price: {

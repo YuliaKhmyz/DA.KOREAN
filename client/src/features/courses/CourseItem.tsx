@@ -6,8 +6,8 @@ import { Course } from './types/Course';
 function CourseItem({ course }: { course: Course }): JSX.Element {
   return (
     <div>
-      <h3 className="course-title">{course.title}</h3>
-      <p className="course-description">{course.description}</p>
+      <h3 className="course-title">{course.main_title}</h3>
+      <p className="course-description">{course.main_description}</p>
       <Link to="/courses">
         <Button variant="outline-light" className="lesson-sign-up">
           Узнать подробнее
