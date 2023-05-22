@@ -8,11 +8,7 @@ function Header(): JSX.Element {
 
   return (
     <header className="header">
-      <NavbarComponent
-        showRegBtns
-        dropDirection={DROP_DIRECTION}
-        showSocials={SHOW_SOCIALS}
-      />
+      <NavbarComponent showLogo showRegBtns dropDirection={DROP_DIRECTION} showSocials={SHOW_SOCIALS} />
     </header>
   );
 }

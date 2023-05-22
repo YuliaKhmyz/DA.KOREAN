@@ -1,0 +1,46 @@
+@font-face {
+  font-family: 'South';
+  font-weight: 400;
+  src: local('South'), url('./South.woff2'), url('./South.woff') format('truetype');
+}
+
+.courses.column-content-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+}
+
+.courses-title {
+  font-family: 'South';
+  text-transform: uppercase;
+  font-size: 48px;
+  text-align: center;
+  margin: 0px 0px 65px 0px;
+}
+
+.courses {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  color: #fcfaf6;
+}
+
+.course {
+  width: 100%;
+  max-width: 540px;
+  padding: 60px 80px;
+  border-radius: 40px;
+  margin: 0px 0px 30px 0px;
+}
+
+.course-title {
+  font-family: 'South';
+  font-size: 30px;
+  text-transform: uppercase;
+}
+
+.lesson-sign-up {
+  text-transform: uppercase;
+  font-family: 'South';
+}

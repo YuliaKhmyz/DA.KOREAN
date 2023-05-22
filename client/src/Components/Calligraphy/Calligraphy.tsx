@@ -4,7 +4,7 @@ import CalligraphyPage from '../../features/calligraphy/CalligraphyPage';
 
 function Calligraphy() {
   return (
-    <div>
+    <div style={{ backgroundColor: 'aqua' }}>
       <h2>анти-стресс каллиграфия </h2>
       <div>
         Каллиграфия — это искусство красивого письма, в котором отражена

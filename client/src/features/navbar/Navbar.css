@@ -1,9 +1,24 @@
 .navbar {
-  height: 100px;
+  height: 122px;
+}
+
+.navbar-nav {
+  align-items: center;
 }
 
 .navbar a {
-  color: #fff;
+  font-size: 20px;
+  color: #201a1a;
+  margin: 0px 80px 0px 0px;
+}
+
+.navbar .auth-links a {
+  text-decoration: none;
+  margin: 0px 30px 0px 0px;
+}
+
+.navbar .auth-links a:last-child {
+  margin: 0;
 }
 
 .dropdown-menu a {
@@ -16,7 +31,7 @@
 }
 
 .logo-text img {
-  width: 150px;
+  width: 93px;
 }
 
 .user-name {
