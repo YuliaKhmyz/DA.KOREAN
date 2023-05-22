@@ -1,9 +1,15 @@
-/* !Проблема со всеми местами, где необходимо использовать url(...) */
-/* @font-face {
-  font-family: 'SUIT';
-  font-weight: 500;
-  src: local('SUIT'), url('./fonts/SUIT-Medium.woff2') format('truetype');
-} */
+@font-face {
+  font-family: 'South';
+  font-weight: 400;
+  src: local('South'), url('./South.woff2'), url('./South.woff') format('truetype');
+}
+
+.first-section.column-content-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100vh;
+}
 
 .fist-section {
   background-color: white;
@@ -26,10 +32,12 @@
 
 .first-section_left {
   width: 100%;
-  max-width: 730px;
+  max-width: 680px;
 }
 
 .first-section_left .title {
+  font-family: 'South';
+  font-weight: 400;
   font-size: 60px;
   text-transform: uppercase;
   padding: 104px 0px 0px 0px;
@@ -44,6 +52,7 @@
 }
 
 .first-section_left .lesson-sign-up {
+  font-family: 'South';
   font-size: 20px;
   transition: 0.4s;
   margin: 0px 24px 0px 0px;
@@ -61,6 +70,7 @@
 }
 
 .first-section_left .more-info {
+  font-family: 'South';
   font-size: 20px;
   border: 2px solid #201a1a;
   color: #201a1a;

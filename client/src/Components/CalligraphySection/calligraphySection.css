@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'South';
+  font-weight: 400;
+  src: local('South'), url('./South.woff2'), url('./South.woff') format('truetype');
+}
+
 .calligraphy.column-content-container {
   display: flex;
   flex-direction: column;
@@ -7,6 +13,8 @@
 }
 
 .calligraphy-title {
+  font-family: 'South';
+  letter-spacing: 0.05em;
   font-size: 48px;
   text-transform: uppercase;
   margin: 0px 0px 40px 0px;
@@ -39,9 +47,13 @@
 
 .hieroglyph-russian {
   text-transform: uppercase;
+  font-family: 'South';
+  letter-spacing: 0.05em;
 }
 
 .calligraphy .more-info {
+  font-family: 'South';
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   font-size: 20px;
   padding: 9px 23px;
