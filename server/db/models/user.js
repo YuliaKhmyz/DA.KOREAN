@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
       });
       this.belongsToMany(CalligraphyCourse, {
         foreignKey: 'calligraphy_course_id',
-        through: 'CalligraphyLessons',
+        through: 'BoughtCalligraphies',
       });
     }
   }

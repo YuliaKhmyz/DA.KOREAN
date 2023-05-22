@@ -25,11 +25,6 @@ function CalligraphyPage(): JSX.Element {
   const { register, handleSubmit, reset } = useForm<FormInput>();
   const dispatch = useAppDispatch();
   const calligraphies = useSelector(selectCalligraphies);
-  // const [showForm, setShowForm] = useState(false);
-  const [elementId, setElementId] = useState<null | number>(null);
-  const [changeKoreanTitle, setChangeKoreanTitle] = useState('');
-  const [changeTitle, setChangechangeTitle] = useState('');
-  const [changeLink, setChangeLink] = useState('');
 
   const onSubmit: SubmitHandler<FormInput> = async (data) => {
     console.log(data);
@@ -42,23 +37,6 @@ function CalligraphyPage(): JSX.Element {
   const handleDelete = (id: CalligraphyId): void => {
     dispatch(deleteCalligraphy(id));
     console.log(id);
-  };
-
-  const handleUpdate = (newCalligraphy: Calligraphy): void => {
-    console.log(newCalligraphy);
-
-    // dispatch(updateCalligraphy(newCalligraphy));
-    // console.log('update');
-  };
-
-  const addInput = (id: CalligraphyId): void => {
-    calligraphies.filter((calligraphy) => {
-      if (calligraphy.id === id) {
-        console.log('id', id);
-        // setShowForm((prev) => !prev);
-        setElementId(id);
-      }
-    });
   };
 
   useEffect(() => {
@@ -161,7 +139,6 @@ function CalligraphyPage(): JSX.Element {
             <ChangeCalligraphyItem
               calligraphy={calligraphy}
               handleDelete={() => handleDelete(calligraphy.id)}
-              handleUpdate={() => handleUpdate(calligraphy)}
             />
           </div>
         ))}
