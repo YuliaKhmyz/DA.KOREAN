@@ -2,11 +2,13 @@ import { configureStore } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
 import authSlice from './features/auth/authSlice';
 import calligraphiesSlice from './features/calligraphy/calligraphiesSlice';
+import coursesSlice from './features/courses/coursesSlice';
 
 const store = configureStore({
   reducer: {
     auth: authSlice,
     calligraphies: calligraphiesSlice,
+    courses: coursesSlice,
   },
 });
 
