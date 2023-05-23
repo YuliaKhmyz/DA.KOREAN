@@ -7,13 +7,13 @@ import CalligraphySection from '../../Components/CalligraphySection/CalligraphyS
 function MainPage(): JSX.Element {
   return (
     <>
-      <Section haveHeader={false}>
+      <Section haveHeader haveFooter={false}>
         <FirstSection />
       </Section>
-      <Section haveHeader={false}>
+      <Section haveHeader={false} haveFooter={false}>
         <CoursesSection />
       </Section>
-      <Section haveHeader={false}>
+      <Section haveHeader={false} haveFooter>
         <CalligraphySection />
       </Section>
     </>

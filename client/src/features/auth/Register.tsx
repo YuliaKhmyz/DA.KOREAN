@@ -3,9 +3,11 @@ import React, { useCallback } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { Container } from 'react-bootstrap';
 import { registerUser } from './authSlice';
 import { selectRegisterFormError } from './selectors';
 import { useAppDispatch } from '../../store';
+import Section from '../../Components/Section/Section';
 
 type FormInput = {
   name: string;
@@ -28,73 +30,62 @@ function Register(): JSX.Element {
           email: data.email,
           password: data.password,
           password2: data.password2,
-        })
+        }),
       );
       if (registerUser.fulfilled.match(dispatchResult)) {
         navigate('/');
       }
     },
-    [dispatch, navigate]
+    [dispatch, navigate],
   );
 
   return (
     // eslint-disable-next-line @typescript-eslint/no-misused-promises
-    <form className="auth-form" onSubmit={handleSubmit(onSubmit)}>
-      <h2>Регистрация</h2>
-      {error && (
-        <div className="invalid-feedback mb-3" style={{ display: 'block' }}>
-          {error}
-        </div>
-      )}
-      <div className="mb-3">
-        <label htmlFor="name-input" className="form-label">
-          Имя
-          <input
-            placeholder="Введите имя"
-            type="text"
-            id="name-input"
-            // eslint-disable-next-line react/jsx-props-no-spreading
-            {...register('name')}
-          />
-        </label>
-      </div>
-      <div className="mb-3">
-        <label htmlFor="email-input" className="form-label">
-          Адрес электронной почты
-          <input
-            type="email"
-            id="email-input"
-            placeholder="Введите адрес электронной почты"
-            {...register('email')}
-          />
-        </label>
-      </div>
-      <div className="mb-3">
-        <label htmlFor="password-input" className="form-label">
-          Пароль
-          <input
-            type="password"
-            id="password-input"
-            placeholder="Введите пароль"
-            {...register('password')}
-          />
-        </label>
-      </div>
-      <div className="mb-3">
-        <label htmlFor="password-repeat-input" className="form-label">
-          Повторите пароль
-          <input
-            type="password"
-            id="password-repeat-input"
-            placeholder="Введите пароль повторно"
-            {...register('password2')}
-          />
-        </label>
-      </div>
-      <button type="submit" className="btn btn-primary">
-        Зарегистрироваться
-      </button>
-    </form>
+    <Section haveHeader haveFooter>
+      <Container>
+        <form className="auth-form" onSubmit={handleSubmit(onSubmit)}>
+          <h2>Регистрация</h2>
+          {error && (
+            <div className="invalid-feedback mb-3" style={{ display: 'block' }}>
+              {error}
+            </div>
+          )}
+          <div className="mb-3">
+            <label htmlFor="name-input" className="form-label">
+              Имя
+              <input
+                placeholder="Введите имя"
+                type="text"
+                id="name-input"
+                // eslint-disable-next-line react/jsx-props-no-spreading
+                {...register('name')}
+              />
+            </label>
+          </div>
+          <div className="mb-3">
+            <label htmlFor="email-input" className="form-label">
+              Адрес электронной почты
+              <input type="email" id="email-input" placeholder="Введите адрес электронной почты" {...register('email')} />
+            </label>
+          </div>
+          <div className="mb-3">
+            <label htmlFor="password-input" className="form-label">
+              Пароль
+              <input type="password" id="password-input" placeholder="Введите пароль" {...register('password')} />
+            </label>
+          </div>
+          <div className="mb-3">
+            <label htmlFor="password-repeat-input" className="form-label">
+              Повторите пароль
+              <input type="password" id="password-repeat-input" placeholder="Введите пароль повторно" {...register('password2')} />
+            </label>
+          </div>
+          <button type="submit" className="btn btn-primary">
+            Зарегистрироваться
+          </button>
+        </form>
+      </Container>
+    </Section>
   );
 }
 

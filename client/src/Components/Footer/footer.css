@@ -1,10 +1,113 @@
+@font-face {
+  font-family: 'South';
+  font-weight: 400;
+  src: local('South'), url('./South.woff2'), url('./South.woff') format('truetype');
+}
+
 .footer {
-  min-height: 250px;
-  background-color: #313848;
+  font-family: 'Montserrat', sans-serif;
+  min-height: 370px;
+  background-color: #005074;
+  color: #fcfaf6;
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .footer .navbar {
   justify-content: center;
   flex-direction: column;
-  height: 250px;
+  height: 370px;
+}
+
+.footer .navbar a {
+  color: #fcfaf6;
+}
+
+.footer .navbar a:hover {
+  color: #bdbbbb;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer .column-left .navbar-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#basic-nav-dropdown {
+  padding: 0px 0px 0px 0px;
+}
+
+.footer .page-link {
+  margin: 0px 0px 30px 0px;
+}
+
+.footer .page-link:last-child {
+  margin: 0;
+}
+
+.footer .column-middle {
+  width: 100%;
+  max-width: 445px;
+}
+
+.footer .form-label {
+  font-size: 20px;
+  margin: 0px 0px 25px 0px;
+}
+
+.footer .form-control {
+  font-size: 20px;
+  border-radius: 0;
+  margin: 0px 0px 30px 0px;
+}
+
+.footer .subscribe-form {
+  height: 100%;
+}
+
+.footer .subscribe-form-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.footer .subscribe-btn {
+  font-size: 20px;
+  font-family: 'South';
+  width: 100%;
+  max-width: 180px;
+  padding: 12px 0px;
+}
+
+.footer .column-right {
+  width: 100%;
+  max-width: 215px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.footer .column-right .socials {
+  display: flex;
+}
+
+.footer .phone,
+.footer .contact-email {
+  font-size: 20px;
+  margin: 0px 0px 30px 0px;
+}
+
+.socials {
+  display: flex;
+  justify-content: space-between;
+  margin: 0px 0px 40px 0px;
 }

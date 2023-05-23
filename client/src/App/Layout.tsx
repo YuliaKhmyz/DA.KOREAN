@@ -5,7 +5,7 @@ import Header from '../Components/Header/Header';
 
 function Layout(): JSX.Element {
   return (
-    <div>
+    <div className="root-container">
       <Header />
       <Outlet />
       <Footer />
