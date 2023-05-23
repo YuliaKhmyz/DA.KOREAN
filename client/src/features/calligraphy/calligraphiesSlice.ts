@@ -1,6 +1,5 @@
 // tasks/tasksSlice.ts
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { logout } from '../auth/authSlice';
 import { CalligraphyId, Calligraphy } from './types/Calligraphy';
 import CalligraphiesState from './types/CalligraphyState';
 import * as api from './api';
@@ -24,7 +23,7 @@ export const createCalligraphy = createAsyncThunk(
       throw new Error('Заполните все поля');
     }
     return api.createCalligraphy(title, link, koreantitle);
-  },
+  }
 );
 export const loadCalligraphies = createAsyncThunk(
   'calligraphies/loadCalligraphies',
@@ -36,7 +35,7 @@ export const updateCalligraphy = createAsyncThunk(
   async (newCalligraphy: Calligraphy) => {
     await api.updateCalligraphy(newCalligraphy);
     return newCalligraphy;
-  },
+  }
 );
 
 export const deleteCalligraphy = createAsyncThunk(
@@ -72,7 +71,7 @@ const calligraphiesSlice = createSlice({
 
       .addCase(updateCalligraphy.fulfilled, (state, action) => {
         state.calligraphies = state.calligraphies.map((calligraphy) =>
-          calligraphy.id === action.payload.id ? action.payload : calligraphy,
+          calligraphy.id === action.payload.id ? action.payload : calligraphy
         );
       })
 

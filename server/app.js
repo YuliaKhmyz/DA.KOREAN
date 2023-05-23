@@ -10,12 +10,14 @@ const calligraphiesApiRouter = require('./routes/api/calligraphies.routes');
 
 const serverConfig = require('./config/serverConfig');
 const sessionConfig = require('./config/session');
+const courseRouter = require('./routes/api/courses.routes');
 
 serverConfig(app);
 
 app.use(session(sessionConfig));
 app.use('/api/auth', authApiRouter);
 app.use('/api/calligraphies', calligraphiesApiRouter);
+app.use('/api/courses', courseRouter);
 
 try {
   app.listen(PORT, () => {
