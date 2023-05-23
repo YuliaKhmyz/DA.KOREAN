@@ -8,8 +8,8 @@ const initialState: CalligraphiesState = {
 };
 
 export const getMyCalligraphies = createAsyncThunk(
-  'calligraphies/loadCalligraphies',
-  () => api.getCalligraphies()
+  'calligraphies/loadMyCalligraphies',
+  () => api.getMyCalligraphies()
 );
 
 const userPageSlice = createSlice({

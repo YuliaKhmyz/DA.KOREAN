@@ -1,5 +1,5 @@
-import Calligraphy from './types/Calligraphy';
+import MyCalligraphy from './types/Calligraphy';
 import { RootState } from '../../store';
 
-export const selectCalligraphies = (state: RootState): Calligraphy[] =>
-  state.calligraphies.calligraphies;
+export const selectMyCalligraphies = (state: RootState): MyCalligraphy[] =>
+  state.mycalligraphies.calligraphies;

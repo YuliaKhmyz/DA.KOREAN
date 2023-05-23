@@ -1,5 +1,5 @@
-import Calligraphy from './Calligraphy';
+import MyCalligraphy from './Calligraphy';
 
-export default interface CalligraphiesState {
-  calligraphies: Calligraphy[];
+export default interface MyCalligraphiesState {
+  calligraphies: MyCalligraphy[];
 }
