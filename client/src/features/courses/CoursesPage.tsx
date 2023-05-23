@@ -5,6 +5,7 @@ import CoursePageItem from './CoursePageItem';
 import AddCourseForm from './AddCourseForm';
 import { loadCourses } from './coursesSlice';
 import { useAppDispatch } from '../../store';
+import DeleteUpdateCourse from './DeleteUpdateCourse';
 
 function CoursesPage(): JSX.Element {
   const courses = useSelector(selectCourses);
@@ -23,7 +24,12 @@ function CoursesPage(): JSX.Element {
           </div>
         ))}
       </div>
+      <img
+        src="https://drive.google.com/file/d/13RdHkhgk4J661SnB1j9yaYPoe7kxMPL1/view"
+        alt="1"
+      />
       <AddCourseForm />
+      <DeleteUpdateCourse />
     </div>
   );
 }

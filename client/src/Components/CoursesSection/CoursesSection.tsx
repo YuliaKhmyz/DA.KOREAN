@@ -26,7 +26,7 @@ function CoursesSection(): JSX.Element {
             <div
               key={course.id}
               className="course"
-              style={{ backgroundColor: BACKGROUNDS_COLORS[course.id] }}
+              style={{ backgroundColor: BACKGROUNDS_COLORS[course.id - 1] }}
             >
               <CourseItem course={course} />
             </div>

@@ -49,21 +49,21 @@ export const loadCourses = createAsyncThunk('courses/loadCourses', () =>
   api.getCourse(),
 );
 
-// export const updateCalligraphy = createAsyncThunk(
-//   'calligraphies/updateCalligraphy',
-//   async (newCalligraphy: Calligraphy) => {
-//     await api.updateCalligraphy(newCalligraphy);
-//     return newCalligraphy;
-//   },
-// );
+export const updateCourse = createAsyncThunk(
+  'courses/updateCourse',
+  async (newCourse: Course) => {
+    await api.updateCourse(newCourse);
+    return newCourse;
+  },
+);
 
-// export const deleteCalligraphy = createAsyncThunk(
-//   'calligraphies/deleteCalligraphy',
-//   async (id: CalligraphyId) => {
-//     await api.deleteCalligraphy(id);
-//     return id;
-//   }
-// );
+export const deleteCourse = createAsyncThunk(
+  'courses/deleteCourse',
+  async (id: CourseId) => {
+    await api.deleteCourse(id);
+    return id;
+  },
+);
 
 // export const buyCalligraphy = createAsyncThunk(
 //   'calligraphies/buyCalligraphy',
@@ -86,19 +86,19 @@ const coursesSlice = createSlice({
 
       .addCase(loadCourses.fulfilled, (state, action) => {
         state.courses = action.payload;
+      })
+
+      .addCase(updateCourse.fulfilled, (state, action) => {
+        state.courses = state.courses.map((course) =>
+          course.id === action.payload.id ? action.payload : course,
+        );
+      })
+
+      .addCase(deleteCourse.fulfilled, (state, action) => {
+        state.courses = state.courses.filter(
+          (course) => course.id !== action.payload,
+        );
       });
-
-    // .addCase(updateCalligraphy.fulfilled, (state, action) => {
-    //   state.calligraphies = state.calligraphies.map((calligraphy) =>
-    //     calligraphy.id === action.payload.id ? action.payload : calligraphy,
-    //   );
-    // })
-
-    // .addCase(deleteCalligraphy.fulfilled, (state, action) => {
-    //   state.calligraphies = state.calligraphies.filter(
-    //     (callirgaphy) => callirgaphy.id !== action.payload
-    //   );
-    // });
 
     // .addCase(logout.fulfilled, (state) => {
     //   state.calligraphies = [];

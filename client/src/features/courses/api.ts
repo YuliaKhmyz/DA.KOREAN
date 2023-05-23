@@ -1,4 +1,5 @@
 import { Course, CourseId } from './types/Course';
+import CourseData from './types/CourseData';
 
 export async function createCourse(
   main_title: string,
@@ -35,23 +36,21 @@ export async function createCourse(
   return res.json();
 }
 
-// export async function updateCalligraphy(
-//   calligraphy: Calligraphy,
-// ): Promise<void> {
-//   await fetch(`/api/calligraphies/${calligraphy.id}`, {
-//     method: 'PUT',
-//     body: JSON.stringify(calligraphy),
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//   });
-// }
+export async function updateCourse(course: Course): Promise<void> {
+  await fetch(`/api/courses/${course.id}`, {
+    method: 'PUT',
+    body: JSON.stringify(course),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+}
 
-// export async function deleteCalligraphy(id: CalligraphyId): Promise<void> {
-//   await fetch(`/api/calligraphies/${id}`, {
-//     method: 'DELETE',
-//   });
-// }
+export async function deleteCourse(id: CourseId): Promise<void> {
+  await fetch(`/api/courses/${id}`, {
+    method: 'DELETE',
+  });
+}
 
 export async function getCourse(): Promise<Course[]> {
   const result = await fetch('/api/courses');
