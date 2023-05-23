@@ -22,8 +22,12 @@ function CoursesSection(): JSX.Element {
       <div className="courses column-content-container">
         <h2 className="courses-title">курсы</h2>
         <div className="courses">
-          {cutCourses.map((course) => (
-            <div key={course.id} className="course" style={{ backgroundColor: BACKGROUNDS_COLORS[course.id] }}>
+          {courses.map((course) => (
+            <div
+              key={course.id}
+              className="course"
+              style={{ backgroundColor: BACKGROUNDS_COLORS[course.id - 1] }}
+            >
               <CourseItem course={course} />
             </div>
           ))}
