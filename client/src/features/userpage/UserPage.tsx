@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../store';
 import { selectUser } from '../auth/selectors';
-import MyCalender from '../Calendar/Calendar';
+import MyCalender from '../../Components/Calendar/Calendar';
 import { selectMyCalligraphies } from './selectors';
 import MyCalligraphy from './types/Calligraphy';
 import { getMyCalligraphies } from './userPageSlice';
@@ -21,7 +21,7 @@ function MyPage(): JSX.Element {
     if (!user) {
       navigate('/');
     }
-  }, [dispatch]);
+  }, [dispatch, mycalligraphies, user, navigate]);
 
   return (
     <div>
