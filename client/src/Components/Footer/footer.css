@@ -1,8 +1,7 @@
 @font-face {
   font-family: 'South';
   font-weight: 400;
-  src: local('South'), url('./South.woff2'),
-    url('./South.woff') format('truetype');
+  src: local('South'), url('./South.woff2'), url('./South.woff') format('truetype');
 }
 
 .footer {
@@ -11,10 +10,10 @@
   background-color: #005074;
   color: #fcfaf6;
   display: flex;
-  position: relative;
-  bottom: 0;
+  /* position: absolute; */
+  /* bottom: 0;
   left: 0;
-  right: 0;
+  right: 0; */
 }
 
 .footer .navbar {
