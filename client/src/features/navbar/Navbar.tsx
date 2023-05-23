@@ -18,7 +18,11 @@ type NavbarComponentProps = {
   dropDirection: DropDirection;
 };
 
-function NavbarComponent({ showLogo, showRegBtns, dropDirection }: NavbarComponentProps): JSX.Element {
+function NavbarComponent({
+  showLogo,
+  showRegBtns,
+  dropDirection,
+}: NavbarComponentProps): JSX.Element {
   const user = useSelector(selectUser);
   const authChecked = useSelector(selectAuthChecked);
   const dispatch = useAppDispatch();
@@ -33,7 +37,7 @@ function NavbarComponent({ showLogo, showRegBtns, dropDirection }: NavbarCompone
         navigate('/');
       }
     },
-    [dispatch, navigate],
+    [dispatch, navigate]
   );
 
   useEffect(() => {
@@ -51,21 +55,28 @@ function NavbarComponent({ showLogo, showRegBtns, dropDirection }: NavbarCompone
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Link to="#about" className="page-link">
+            <Link to="/" className="page-link">
               {' '}
-              О нас{' '}
+              Главная{' '}
             </Link>
-            <NavDropdown title="Курсы" drop={dropDirection} id="basic-nav-dropdown" className="page-link">
+            <NavDropdown
+              title="Курсы"
+              drop={dropDirection}
+              id="basic-nav-dropdown"
+              className="page-link"
+            >
               <NavDropdown.Item href="#action/3.1">Курс 1</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">Курс 2</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">Курс 3</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">Каллиграфия (если нужно)</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.4">
+                Каллиграфия (если нужно)
+              </NavDropdown.Item>
             </NavDropdown>
             <Link to="/calligraphy" className="page-link">
               Каллиграфия
             </Link>
-            <Link to="#blog" className="page-link">
+            <Link to="/blog" className="page-link">
               Блог
             </Link>
           </Nav>

@@ -2,39 +2,23 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Courses', {
+    await queryInterface.createTable('BlogPosts', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      main_title: {
+      title: {
         type: Sequelize.TEXT,
         allowNull: false,
       },
-      main_description: {
-        type: Sequelize.TEXT,
-      },
-      start_title: {
+      description: {
         type: Sequelize.TEXT,
         allowNull: false,
       },
-      start_description: {
+      photo: {
         type: Sequelize.TEXT,
-      },
-      condition_title: {
-        type: Sequelize.TEXT,
-        allowNull: false,
-      },
-      condition_description: {
-        type: Sequelize.TEXT,
-      },
-      price_title: {
-        type: Sequelize.TEXT,
-      },
-      price: {
-        type: Sequelize.INTEGER,
         allowNull: false,
       },
       createdAt: {
@@ -48,6 +32,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Courses');
+    await queryInterface.dropTable('BlogPosts');
   },
 };
