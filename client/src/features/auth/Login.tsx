@@ -1,9 +1,10 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { Button, Container } from 'react-bootstrap';
-import { login, resetLoginFormError } from './authSlice';
+import { login } from './authSlice';
 import { selectLoginFormError } from './selectors';
 import { useAppDispatch } from '../../store';
 import './login.css';
@@ -47,15 +48,16 @@ function Login(): JSX.Element {
               {error}
             </div>
           )}
-          <label htmlFor="email-input" className="input-label">
+
+          <label htmlFor="email-input" className="form-label">
             Адрес электронной почты
-            <input type="email" id="email-input" className="email-input" placeholder="Введите адрес" {...register('email')} />
+            <input type="email" id="email-input" className="email-input" placeholder="Введите адрес электронной почты" {...register('email')} />
           </label>
-          <label htmlFor="password-input" className="input-label">
+          <label htmlFor="password-input" className="form-label">
             Пароль
             <input type="password" id="password-input" className="password-input" placeholder="Введите пароль" {...register('password')} />
           </label>
-          <Button variant="outline-secondary" className="login-btn">
+          <Button type="submit" variant="outline-secondary" className="login-btn">
             Войти
           </Button>
         </form>
