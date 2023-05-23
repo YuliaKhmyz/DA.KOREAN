@@ -12,22 +12,18 @@ const BACKGROUNDS_COLORS = ['#FF5E00', '#FFAD00', '#005074', '#97B6C2'];
 function CoursesSection(): JSX.Element {
   const dispatch = useAppDispatch();
   const courses = useSelector(selectCourses);
+  const cutCourses = courses.slice(0, 4);
 
   useEffect(() => {
     dispatch(loadCourses());
   }, [dispatch]);
-  console.log('courses', courses);
   return (
     <Container style={{ height: '100vh' }}>
       <div className="courses column-content-container">
         <h2 className="courses-title">курсы</h2>
         <div className="courses">
-          {courses.map((course) => (
-            <div
-              key={course.id}
-              className="course"
-              style={{ backgroundColor: BACKGROUNDS_COLORS[course.id] }}
-            >
+          {cutCourses.map((course) => (
+            <div key={course.id} className="course" style={{ backgroundColor: BACKGROUNDS_COLORS[course.id] }}>
               <CourseItem course={course} />
             </div>
           ))}
