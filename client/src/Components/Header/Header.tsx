@@ -4,11 +4,10 @@ import './header.css';
 
 function Header(): JSX.Element {
   const DROP_DIRECTION = 'down';
-  const SHOW_SOCIALS = false;
 
   return (
     <header className="header">
-      <NavbarComponent showLogo showRegBtns dropDirection={DROP_DIRECTION} showSocials={SHOW_SOCIALS} />
+      <NavbarComponent showLogo showRegBtns dropDirection={DROP_DIRECTION} />
     </header>
   );
 }

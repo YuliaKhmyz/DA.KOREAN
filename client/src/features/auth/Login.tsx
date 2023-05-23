@@ -1,10 +1,14 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import { login, resetLoginFormError } from './authSlice';
+import { Button, Container } from 'react-bootstrap';
+import { login } from './authSlice';
 import { selectLoginFormError } from './selectors';
 import { useAppDispatch } from '../../store';
+import './login.css';
+import Section from '../../Components/Section/Section';
 
 type FormInput = {
   email: string;
@@ -22,7 +26,7 @@ function Login(): JSX.Element {
       login({
         email: data.email,
         password: data.password,
-      })
+      }),
     );
 
     if (login.fulfilled.match(dispatchResult)) {
@@ -35,39 +39,30 @@ function Login(): JSX.Element {
   };
 
   return (
-    <form className="auth-form" onSubmit={handleSubmit(onSubmit)}>
-      <h2>Вход</h2>
-      {error && (
-        <div className="invalid-feedback mb-3" style={{ display: 'block' }}>
-          {error}
-        </div>
-      )}
-      <div className="mb-3">
-        <label htmlFor="email-input" className="form-label">
-          Адрес электронной почты
-        </label>
-        <input
-          type="email"
-          id="email-input"
-          placeholder="Введите адрес электронной почты"
-          {...register('email')}
-        />
-      </div>
-      <div className="mb-3">
-        <label htmlFor="password-input" className="form-label">
-          Пароль
-        </label>
-        <input
-          type="password"
-          id="password-input"
-          placeholder="Введите пароль"
-          {...register('password')}
-        />
-      </div>
-      <button type="submit" className="btn btn-primary">
-        Войти
-      </button>
-    </form>
+    <Section>
+      <Container className="login-container">
+        <form className="login auth-form" onSubmit={handleSubmit(onSubmit)}>
+          <h2 className="login-title">Вход</h2>
+          {error && (
+            <div className="invalid-feedback mb-3" style={{ display: 'block' }}>
+              {error}
+            </div>
+          )}
+
+          <label htmlFor="email-input" className="form-label">
+            Адрес электронной почты
+            <input type="email" id="email-input" className="email-input" placeholder="Введите адрес электронной почты" {...register('email')} />
+          </label>
+          <label htmlFor="password-input" className="form-label">
+            Пароль
+            <input type="password" id="password-input" className="password-input" placeholder="Введите пароль" {...register('password')} />
+          </label>
+          <Button type="submit" variant="outline-secondary" className="login-btn">
+            Войти
+          </Button>
+        </form>
+      </Container>
+    </Section>
   );
 }
 

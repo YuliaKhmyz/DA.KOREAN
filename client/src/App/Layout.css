@@ -1,0 +1,24 @@
+.root-container {
+  --header-height: 122px;
+  --footer-height: 370px;
+}
+
+.header {
+  height: var(--header-height);
+}
+
+.section {
+  min-height: 100vh;
+}
+
+.header + .section {
+  min-height: calc(100vh - var(--header-height));
+}
+
+.section:only-of-type {
+  min-height: calc(100vh - var(--footer-height) - var(--header-height));
+}
+
+.footer {
+  height: var(--footer-height);
+}

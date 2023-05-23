@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import CalligraphyPage from '../../features/calligraphy/CalligraphyPage';
 
-function Calligraphy() {
+function Calligraphy(): JSX.Element {
   return (
     <div style={{ backgroundColor: 'aqua' }}>
       <h2>анти-стресс каллиграфия </h2>
