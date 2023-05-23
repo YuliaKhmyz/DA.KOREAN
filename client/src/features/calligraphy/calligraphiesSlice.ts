@@ -3,6 +3,8 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { CalligraphyId, Calligraphy } from './types/Calligraphy';
 import CalligraphiesState from './types/CalligraphyState';
 import * as api from './api';
+import { useAppDispatch } from '../../store';
+import { getMyCalligraphies } from '../userpage/userPageSlice';
 
 const initialState: CalligraphiesState = {
   calligraphies: [],
@@ -50,6 +52,8 @@ export const buyCalligraphy = createAsyncThunk(
   'calligraphies/buyCalligraphy',
   async (id: CalligraphyId) => {
     await api.buyCalligraphy(id);
+    const dispatch = useAppDispatch();
+    dispatch(getMyCalligraphies());
     return id;
   }
 );
