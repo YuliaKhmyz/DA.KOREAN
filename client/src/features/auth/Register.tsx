@@ -41,7 +41,7 @@ function Register(): JSX.Element {
 
   return (
     // eslint-disable-next-line @typescript-eslint/no-misused-promises
-    <Section haveHeader haveFooter>
+    <Section>
       <Container>
         <form className="auth-form" onSubmit={handleSubmit(onSubmit)}>
           <h2>Регистрация</h2>

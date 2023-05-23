@@ -1,6 +1,14 @@
+@font-face {
+  font-family: 'South';
+  font-weight: 400;
+  src: local('South'), url('./South.woff2'), url('./South.woff') format('truetype');
+}
+
 .login-container {
-  height: 100%;
+  height: 45vh;
   font-family: 'Montserrat', sans-serif;
+  display: flex;
+  justify-content: center;
 }
 
 .login-container .login {
@@ -11,4 +19,46 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.login-title {
+  font-family: 'South';
+  letter-spacing: 0.05em;
+  font-size: 48px;
+  text-transform: uppercase;
+  margin: 0px 0px 40px 0px;
+}
+
+.login .input-label {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.login .email-input,
+.login .password-input {
+  background: #fcfaf6;
+  border: 2px solid #bdbbbb;
+  width: 100%;
+  height: 56px;
+}
+
+.login {
+  font-size: 20px;
+}
+
+.login .login-btn {
+  letter-spacing: 0.15rem;
+  font-family: 'South';
+  font-size: 20px;
+  border: 2px solid #201a1a;
+  color: #201a1a;
+}
+
+.login .login-btn:hover {
+  border: 2px solid #6c757d;
+  color: white;
+}
+
+.login .login-btn:active {
+  background-color: #545763;
 }
