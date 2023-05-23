@@ -1,7 +1,7 @@
-export default interface Calligraphy {
+export default interface MyCalligraphy {
   id: number;
   link: string;
   title: string;
 }
 
-export type CalligraphyId = Calligraphy['id'];
+export type MyCalligraphyId = MyCalligraphy['id'];

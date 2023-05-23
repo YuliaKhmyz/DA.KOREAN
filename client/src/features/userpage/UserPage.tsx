@@ -1,18 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../store';
 import { selectUser } from '../auth/selectors';
 import MyCalender from '../Calendar/Calendar';
-import { selectCalligraphies } from './selectors';
+import { selectMyCalligraphies } from './selectors';
+import MyCalligraphy from './types/Calligraphy';
 import { getMyCalligraphies } from './userPageSlice';
 
 function MyPage(): JSX.Element {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const user = useSelector(selectUser);
-  const calligraphies = useSelector(selectCalligraphies);
+  const mycalligraphies = useSelector(selectMyCalligraphies);
+  console.log(mycalligraphies);
 
   useEffect(() => {
     dispatch(getMyCalligraphies());
+
+    // if (!user) {
+    //   navigate('/');
+    // }
   }, [dispatch]);
 
   return (
@@ -27,10 +35,10 @@ function MyPage(): JSX.Element {
       <div>Здесь будут ваши курсы</div>
       <br />
       <h5>Мои прописи</h5>
-      {!calligraphies && <div>Здесь будут ваши прописи</div>}
-      {calligraphies && (
+      {!mycalligraphies && <div>Здесь будут ваши прописи</div>}
+      {mycalligraphies && (
         <div>
-          {calligraphies.map((calligraphy) => (
+          {mycalligraphies.map((calligraphy) => (
             <div key={calligraphy.id}>
               <h4>{calligraphy.title}</h4>
               <button type="button">
