@@ -45,7 +45,7 @@ export async function getCalligraphy(): Promise<Calligraphy[]> {
 }
 
 export async function buyCalligraphy(id: CalligraphyId): Promise<void> {
-  const res = await fetch('/api/calligraphies/myCalligraphy', {
+  const res = await fetch('/api/calligraphies/mypage', {
     method: 'POST',
     body: JSON.stringify({ id }),
     headers: {
