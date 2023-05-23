@@ -3,19 +3,15 @@ import React, { useEffect, useState } from 'react';
 
 import { useSelector } from 'react-redux';
 import { useForm, SubmitHandler } from 'react-hook-form';
+import { Container } from 'react-bootstrap';
 import { useAppDispatch } from '../../store';
-import {
-  buyCalligraphy,
-  loadCalligraphies,
-  createCalligraphy,
-  deleteCalligraphy,
-  updateCalligraphy,
-} from './calligraphiesSlice';
+import { buyCalligraphy, loadCalligraphies, createCalligraphy, deleteCalligraphy, updateCalligraphy } from './calligraphiesSlice';
 import { selectCalligraphies } from './selectors';
 import { CalligraphyId, Calligraphy } from './types/Calligraphy';
 import './calligraphyPage.css';
 import CalligraphyItem from './CalligraphyItem';
 import ChangeCalligraphyItem from './ChangeCalligraphyItem';
+import Section from '../../Components/Section/Section';
 
 interface FormInput {
   title: string;
@@ -51,27 +47,16 @@ function CalligraphyPage(): JSX.Element {
   };
 
   return (
-    <div>
-      <h2>Прописи-антистресс</h2>
-      <div>
-        <p>
-          Когда пишешь СЛОВО, поневоле проникаешься смыслом, впитываешь посыл
-          руками, глазами, умом и душой. А смысл в надписях всегда глубокий и
-          мотивирующий. Не думаешь о мелочах, списке продуктов и засохшем
-          цветке. Тело и мозг заземляются, отключаясь от привычной работы.
-        </p>
-        <p>
-          Прописывание букв иностранного алфавита сделает слова “своими”, а язык
-          ближе на уровне тела и визуала. Даже без знания корейского языка можно
-          создать красивую открытку. Процесс подготовки занимает мало времени,
-          но выглядит как обряд инициации перед переходом в другое состояние.
-          Удовольствие от раскладывания кистей, ручек, бумаги и фломастеров
-          обеспечено.
-        </p>
-      </div>
+    <Section haveHeader haveFooter={false}>
+      <Container>
+        <div>
+          <h2>Прописи-антистресс</h2>
+          <div>
+            <p>Когда пишешь СЛОВО, поневоле проникаешься смыслом, впитываешь посыл руками, глазами, умом и душой. А смысл в надписях всегда глубокий и мотивирующий. Не думаешь о мелочах, списке продуктов и засохшем цветке. Тело и мозг заземляются, отключаясь от привычной работы.</p>
+            <p>Прописывание букв иностранного алфавита сделает слова “своими”, а язык ближе на уровне тела и визуала. Даже без знания корейского языка можно создать красивую открытку. Процесс подготовки занимает мало времени, но выглядит как обряд инициации перед переходом в другое состояние. Удовольствие от раскладывания кистей, ручек, бумаги и фломастеров обеспечено.</p>
+          </div>
 
-      <h4>Практическая польза от занятий каллиграфией</h4>
-
+          <h4>Практическая польза от занятий каллиграфией</h4>
       <div>
         На выходе получается арт-объект с кучей способов применения. Его можно:
         <ul>
@@ -104,55 +89,37 @@ function CalligraphyPage(): JSX.Element {
               handleBuyCalligraphy={() => handleBuyCalligraphy(calligraphy.id)}
             />
           </div>
-        ))}
-      </div>
 
-      {/* eslint-disable-next-line @typescript-eslint/no-misused-promises */}
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <h3>Форма добавления прописи</h3>
-        <label htmlFor="title-input">
-          Название прописи
-          {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-          <input
-            type="text"
-            placeholder="введите название"
-            id="title-input"
-            {...register('title')}
-          />
-        </label>
-        <label htmlFor="title-input">
-          Корейское название
-          <input
-            type="text"
-            placeholder="корейское название"
-            id="koreantitle-input"
-            {...register('koreantitle')}
-          />
-        </label>
-        <label htmlFor="link-input">
-          Ссылка скачивания
-          <input
-            type="text"
-            placeholder="введите ссылку"
-            id="link-input"
-            {...register('link')}
-          />
-        </label>
-        <button type="submit">Добавить</button>
-      </form>
-      <h3>Список каллиграфий для админа</h3>
+          {/* eslint-disable-next-line @typescript-eslint/no-misused-promises */}
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <h3>Форма добавления прописи</h3>
+            <label htmlFor="title-input">
+              Название прописи
+              {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+              <input type="text" placeholder="введите название" id="title-input" {...register('title')} />
+            </label>
+            <label htmlFor="title-input">
+              Корейское название
+              <input type="text" placeholder="корейское название" id="koreantitle-input" {...register('koreantitle')} />
+            </label>
+            <label htmlFor="link-input">
+              Ссылка скачивания
+              <input type="text" placeholder="введите ссылку" id="link-input" {...register('link')} />
+            </label>
+            <button type="submit">Добавить</button>
+          </form>
+          <h3>Список каллиграфий для админа</h3>
 
-      <div>
-        {calligraphies.map((calligraphy) => (
-          <div key={calligraphy.id}>
-            <ChangeCalligraphyItem
-              calligraphy={calligraphy}
-              handleDelete={() => handleDelete(calligraphy.id)}
-            />
+          <div>
+            {calligraphies.map((calligraphy) => (
+              <div key={calligraphy.id}>
+                <ChangeCalligraphyItem calligraphy={calligraphy} handleDelete={() => handleDelete(calligraphy.id)} />
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-    </div>
+        </div>
+      </Container>
+    </Section>
   );
 }
 
