@@ -1,5 +1,9 @@
 const calligraphyRouter = require('express').Router();
-const { CalligraphyCourse, BoughtCalligraphy } = require('../../db/models');
+const {
+  CalligraphyCourse,
+  BoughtCalligraphy,
+  User,
+} = require('../../db/models');
 
 calligraphyRouter.get('/', async (req, res) => {
   try {
@@ -69,7 +73,7 @@ calligraphyRouter.put('/:id', async (req, res, next) => {
   }
 });
 
-calligraphyRouter.post('/myCalligraphy', async (req, res) => {
+calligraphyRouter.post('/mypage', async (req, res) => {
   const { id } = req.body;
   const previouslyBoughtCalligraphy = await BoughtCalligraphy.findOne({
     where: { calligraphy_course_id: id, user_id: req.session.userId },
@@ -81,6 +85,25 @@ calligraphyRouter.post('/myCalligraphy', async (req, res) => {
       user_id: req.session.userId,
     });
   }
+});
+
+calligraphyRouter.get('/mypage', async (req, res) => {
+  const boughtCalligraphies = await BoughtCalligraphy.findAll({
+    raw: true,
+    where: { user_id: req.session.userId },
+    attributes: {
+      exclude: ['createdAt', 'updatedAt'],
+    },
+  });
+
+  const allCourses = await CalligraphyCourse.findAll({ raw: true });
+
+  const myPageCourses = boughtCalligraphies.map((bougthCourse) => {
+    const { link, title, koreantitle } =
+      allCourses[bougthCourse.calligraphy_course_id - 1];
+    return { ...bougthCourse, link, title, koreantitle };
+  });
+  res.json(myPageCourses);
 });
 
 module.exports = calligraphyRouter;

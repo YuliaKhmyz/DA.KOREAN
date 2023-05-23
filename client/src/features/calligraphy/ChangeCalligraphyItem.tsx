@@ -41,7 +41,7 @@ function ChangeCalligraphyItem({
         title: data.title,
         link: data.link,
         koreantitle: data.koreantitle,
-      }),
+      })
     );
     setShow((prev) => !prev);
   };
