@@ -5,3 +5,27 @@
 .hidden-element.active {
   display: block;
 }
+
+@font-face {
+  font-family: 'South';
+  font-weight: 400;
+  src: local('South'), url('./South.woff2'), url('./South.woff') format('truetype');
+}
+
+.calligraphy-page-container {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.calligraphy-page-title {
+  font-family: 'South';
+  letter-spacing: 0.05em;
+  font-size: 48px;
+  text-transform: uppercase;
+  margin: 0px 0px 40px 0px;
+  text-align: center;
+}
+
+.calligraphy-page-container p {
+  text-indent: 1.5rem;
+  text-align: justify;
+}
