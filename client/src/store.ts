@@ -5,6 +5,7 @@ import authSlice from './features/auth/authSlice';
 import postsSlice from './features/blog/postsSlice';
 import coursesSlice from './features/courses/coursesSlice';
 import userPageSlice from './features/userpage/userPageSlice';
+// import commentsSlice from './features/blog/commentsSlice';
 
 const store = configureStore({
   reducer: {
@@ -13,6 +14,7 @@ const store = configureStore({
     courses: coursesSlice,
     mycalligraphies: userPageSlice,
     posts: postsSlice,
+    // comments: commentsSlice,
   },
 });
 

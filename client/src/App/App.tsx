@@ -13,6 +13,8 @@ import BlogPage from '../features/blog/BlogPage';
 import ChangeCourses from '../features/admin/ChangeCourses';
 import ChangeCallgraphy from '../features/admin/ChangeCallgraphy';
 import AdminPage from '../features/admin/AdminPage';
+import ChangeBlog from '../features/admin/ChangeBlog';
+import PaymentInfo from '../features/admin/PaymentInfo';
 
 function App(): JSX.Element {
   return (
@@ -32,6 +34,8 @@ function App(): JSX.Element {
               path="/admin/changecalligraphy"
               element={<ChangeCallgraphy />}
             />
+            <Route path="/admin/updateblog" element={<ChangeBlog />} />
+            <Route path="/admin/paymentinfo" element={<PaymentInfo />} />
           </Route>
 
           <Route path="/courses" element={<CoursesPage />} />
