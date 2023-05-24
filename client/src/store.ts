@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
+import calligraphiesSlice from './features/calligraphy/calligraphiesSlice';
 import authSlice from './features/auth/authSlice';
 import postsSlice from './features/blog/postsSlice';
-import calligraphiesSlice from './features/calligraphy/calligraphiesSlice';
 import coursesSlice from './features/courses/coursesSlice';
 import userPageSlice from './features/userpage/userPageSlice';
 
