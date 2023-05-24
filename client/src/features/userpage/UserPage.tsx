@@ -7,6 +7,8 @@ import MyCalender from '../../Components/Calendar/Calendar';
 import { selectMyCalligraphies } from './selectors';
 import MyCalligraphy from './types/Calligraphy';
 import { getMyCalligraphies } from './userPageSlice';
+import UploadFile from './UploadFile';
+import './userPage.css';
 
 function MyPage(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -48,6 +50,7 @@ function MyPage(): JSX.Element {
           ))}
         </div>
       )}
+      <UploadFile />
     </div>
   );
 }
