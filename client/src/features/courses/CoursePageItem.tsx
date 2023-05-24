@@ -22,12 +22,14 @@ function CoursePageItem({ course }: CoursePageItemProps): JSX.Element {
 
         <div className="middle-column column">
           <h3 className="condition-title">{course.condition_title}</h3>
-          <div className="condition-description">{course.condition_description}</div>
+          <div className="condition-description">
+            {course.condition_description}
+          </div>
         </div>
 
         <div className="right-column column">
           <h3 className="price-title">{course.price_title}</h3>
-          <div className="price">{separateNumbers(course.price)} &#8381;</div>
+          <div className="price">{separateNumbers(course.price)} Р</div>
           <Link to="#">
             <Button variant="outline-secondary" className="course-buy">
               Купить
