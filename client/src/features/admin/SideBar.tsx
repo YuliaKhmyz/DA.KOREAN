@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import './sideBar.css';
 
 function SideBar(): JSX.Element {
+  const [activeBtn, setActiveBtn] = useState('courses');
+
   return (
-    <div>
+    <div className="sidebar">
       <ul
         style={{ width: '254px' }}
         className="nav nav-pills flex-column mb-auto"
@@ -11,36 +14,37 @@ function SideBar(): JSX.Element {
         <li className="nav-item">
           <Link
             to="/admin/changecourses"
-            className="nav-link active"
+            className={activeBtn === 'courses' ? 'nav-link active' : 'nav-link'}
             aria-current="page"
+            onClick={() => setActiveBtn('courses')}
           >
-            <svg className="bi me-2" width="16" height="16">
-              <use xlinkHref="#home"></use>
-            </svg>
             Управление курсами
           </Link>
         </li>
-        <li>
-          <Link to="/admin/changecalligraphy" className="nav-link link-dark">
-            <svg className="bi me-2" width="16" height="16">
-              <use xlinkHref="#table"></use>
-            </svg>
+        <li className="nav-item">
+          <Link
+            to="/admin/changecalligraphy"
+            className={activeBtn === 'calligs' ? 'nav-link active' : 'nav-link'}
+            onClick={() => setActiveBtn('calligs')}
+          >
             Редактирование каллиграфий
           </Link>
         </li>
-        <li>
-          <Link to="/admin//updateblog" className="nav-link link-dark">
-            <svg className="bi me-2" width="16" height="16">
-              <use xlinkHref="#table"></use>
-            </svg>
+        <li className="nav-item">
+          <Link
+            to="/admin/updateblog"
+            className={activeBtn === 'blog' ? 'nav-link active' : 'nav-link'}
+            onClick={() => setActiveBtn('blog')}
+          >
             Редактирование блога
           </Link>
         </li>
-        <li>
-          <Link to="paymentinfo" className="nav-link link-dark">
-            <svg className="bi me-2" width="16" height="16">
-              <use xlinkHref="#grid"></use>
-            </svg>
+        <li className="nav-item">
+          <Link
+            to="/admin/paymentinfo"
+            className={activeBtn === 'payment' ? 'nav-link active' : 'nav-link'}
+            onClick={() => setActiveBtn('payment')}
+          >
             Информация об оплатах
           </Link>
         </li>
