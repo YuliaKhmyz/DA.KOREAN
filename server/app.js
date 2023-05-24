@@ -8,6 +8,7 @@ const PORT = process.env.PORT ?? 5000;
 const authApiRouter = require('./routes/api/auth.routes');
 const calligraphiesApiRouter = require('./routes/api/calligraphies.routes');
 const postsApiRouter = require('./routes/api/posts.routes');
+const emailApiRouter = require('./routes/api/email.routes');
 
 const serverConfig = require('./config/serverConfig');
 const sessionConfig = require('./config/session');
@@ -20,6 +21,7 @@ app.use('/api/auth', authApiRouter);
 app.use('/api/calligraphies', calligraphiesApiRouter);
 app.use('/api/courses', courseRouter);
 app.use('/api/posts', postsApiRouter);
+app.use('/api', emailApiRouter);
 
 try {
   app.listen(PORT, () => {
