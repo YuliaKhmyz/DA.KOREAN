@@ -1,0 +1,66 @@
+@font-face {
+  font-family: 'South';
+  font-weight: 400;
+  src: local('South'), url('./South.woff2'), url('./South.woff') format('truetype');
+}
+
+.user-page .greetings {
+  text-align: center;
+  font-size: 30px;
+}
+
+.user-page .username {
+  font-weight: 600;
+}
+
+.user-page .react-calendar {
+  background-color: #212121;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.user-page .react-calendar button {
+  color: #fff;
+  border-radius: 4px;
+}
+
+.user-page button.react-calendar__tile--now {
+  background-color: #000;
+}
+
+.user-page .page-subtitle {
+  font-family: 'South', sans-serif;
+  font-size: 30px;
+  margin: 0px 0px 15px 0px;
+}
+
+.user-page .calligraphy-subtitle {
+  padding: 0px 0px 0px 10px;
+  font-size: 20px;
+}
+
+.user-page .bought-course {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  justify-content: space-between;
+  border: 1px solid #ccc;
+  margin: 0px 0px 10px 0px;
+}
+
+.user-page .download {
+  font-family: 'South';
+  font-size: 20px;
+  border: 2px solid #201a1a;
+  color: #201a1a;
+}
+
+.user-page .download:hover {
+  border: 2px solid #6c757d;
+  color: white;
+}
+
+.user-page .download:active {
+  background-color: #545763;
+}
