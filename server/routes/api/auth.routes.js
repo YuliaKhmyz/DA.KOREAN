@@ -62,7 +62,9 @@ authApiRouter.post('/login', async (req, res) => {
           id: user.id,
           name: user.name,
           email: user.email,
+          isAdmin: user.isAdmin,
         };
+        console.log(existingUser);
         req.session.userId = existingUser.id;
         res.status(201).json(existingUser);
         return;
@@ -111,6 +113,8 @@ authApiRouter.get('/check', async (req, res) => {
         user: {
           id: user.id,
           name: user.name,
+          email: user.email,
+          isAdmin: user.isAdmin,
         },
       });
     } else {
