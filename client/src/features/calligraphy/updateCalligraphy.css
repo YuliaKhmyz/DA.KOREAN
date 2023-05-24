@@ -1,0 +1,21 @@
+.updateform-container {
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
+/* .updateform-container .updateform {
+  font-size: 15px;
+  width: 100%;
+  max-width: 100px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+} */
+
+.save-btn {
+  margin-top: ;
+}

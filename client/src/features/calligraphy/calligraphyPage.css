@@ -9,7 +9,8 @@
 @font-face {
   font-family: 'South';
   font-weight: 400;
-  src: local('South'), url('./South.woff2'), url('./South.woff') format('truetype');
+  src: local('South'), url('./South.woff2'),
+    url('./South.woff') format('truetype');
 }
 
 .calligraphy-page-container {
@@ -103,4 +104,12 @@
 
 .calligraphy-page-container .buy-btn:active {
   background-color: #545763;
+}
+
+.update-btn {
+  margin-bottom: 10px;
+}
+
+.save-btn {
+  margin-bottom: 10px;
 }

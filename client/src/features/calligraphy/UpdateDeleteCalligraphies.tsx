@@ -23,11 +23,11 @@ function UpdateDeleteCalligraphies(): JSX.Element {
   return (
     <Section>
       <Container>
-        <h3>Список каллиграфий для админа</h3>
+        <h3 className="calligraphy-page-title">Список каллиграфий</h3>
 
-        <div>
+        <div className="calligraphies">
           {calligraphies.map((calligraphy) => (
-            <div key={calligraphy.id}>
+            <div className="calligraphy-item" key={calligraphy.id}>
               <ChangeCalligraphyItem
                 calligraphy={calligraphy}
                 handleDelete={() => handleDelete(calligraphy.id)}

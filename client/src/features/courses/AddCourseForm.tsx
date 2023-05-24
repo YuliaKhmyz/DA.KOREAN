@@ -3,6 +3,9 @@ import React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { createCourse } from './coursesSlice';
 import { useAppDispatch } from '../../store';
+import './addCourseForm.css';
+import Section from '../../Components/Section/Section';
+import { Container } from 'react-bootstrap';
 
 interface FormInput {
   main_title: string;
@@ -27,37 +30,82 @@ function AddCourseForm(): JSX.Element {
   };
 
   return (
-    <div>
-      {/* eslint-disable-next-line @typescript-eslint/no-misused-promises */}
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <input
-          type="text"
-          placeholder="главное название"
-          {...register('main_title')}
-        />
-        <input
-          type="text"
-          placeholder="главное описание"
-          {...register('main_description')}
-        />
-        <input placeholder="начало курса" {...register('start_title')} />
-        <input
-          placeholder="комментарии по длительности"
-          {...register('start_description')}
-        />
-        <input
-          placeholder="заголовок для описания условий"
-          {...register('condition_title')}
-        />
-        <input
-          placeholder="комментарии по условиям"
-          {...register('condition_description')}
-        />
-        <input placeholder="заголовок стоимости" {...register('price_title')} />
-        <input placeholder="стоимость" {...register('price')} />
-        <button type="submit">Добавить курс</button>
-      </form>
-    </div>
+    <Section>
+      <Container className="addform-container">
+        {/* eslint-disable-next-line @typescript-eslint/no-misused-promises */}
+        <form className="addform" onSubmit={handleSubmit(onSubmit)}>
+          <h3 className="addform-title">Форма добавления курса</h3>
+          <label htmlFor="main_title" className="form-label">
+            {' '}
+            Название курса
+            <textarea
+              id="main_title"
+              placeholder="главное название"
+              {...register('main_title')}
+            />
+          </label>
+          <label htmlFor="main_description" className="form-label">
+            Описание курса для главной страницы
+            <textarea
+              id="main_description"
+              placeholder="главное описание"
+              {...register('main_description')}
+            />
+          </label>
+          <label htmlFor="start_title" className="form-label">
+            Начало курса
+            <textarea
+              id="start_title"
+              placeholder="начало курса"
+              {...register('start_title')}
+            />
+          </label>
+          <label htmlFor="start_description" className="form-label">
+            Длительность
+            <textarea
+              id="start_description"
+              placeholder="комментарии по длительности"
+              {...register('start_description')}
+            />
+          </label>
+          <label htmlFor="condition_title" className="form-label">
+            Описание условий
+            <textarea
+              id="condition_title"
+              placeholder="заголовок для описания условий"
+              {...register('condition_title')}
+            />
+          </label>
+          <label htmlFor="condition_description" className="form-label">
+            Комментарии
+            <textarea
+              id="condition_description"
+              placeholder="комментарии по условиям"
+              {...register('condition_description')}
+            />
+          </label>
+          <label htmlFor="price_title" className="form-label">
+            Заголовок для блока стоимости
+            <textarea
+              id="price_title"
+              placeholder="заголовок стоимости"
+              {...register('price_title')}
+            />
+          </label>
+          <label htmlFor="price" className="form-label">
+            Стоимость
+            <textarea
+              id="price"
+              placeholder="стоимость"
+              {...register('price')}
+            />
+          </label>
+          <button type="submit" className="addform-btn">
+            Добавить курс
+          </button>
+        </form>
+      </Container>
+    </Section>
   );
 }
 

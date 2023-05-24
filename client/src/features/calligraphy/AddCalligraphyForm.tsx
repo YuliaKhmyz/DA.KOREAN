@@ -1,8 +1,11 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { Container } from 'react-bootstrap';
 import { useAppDispatch } from '../../store';
 import { createCalligraphy } from './calligraphiesSlice';
+import './addCalligraphyForm.css';
+import Section from '../../Components/Section/Section';
 
 interface FormInput {
   title: string;
@@ -23,11 +26,11 @@ function AddCalligraphyForm(): JSX.Element {
     }
   };
   return (
-    <div>
+    <Container className="addform-container">
       {/* eslint-disable-next-line @typescript-eslint/no-misused-promises */}
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <h3>Форма добавления прописи</h3>
-        <label htmlFor="title-input">
+      <form className="addform" onSubmit={handleSubmit(onSubmit)}>
+        <h3 className="addform-title">Форма добавления прописи</h3>
+        <label htmlFor="title-input" className="form-label">
           Название прописи
           {/* eslint-disable-next-line react/jsx-props-no-spreading */}
           <input
@@ -37,7 +40,7 @@ function AddCalligraphyForm(): JSX.Element {
             {...register('title')}
           />
         </label>
-        <label htmlFor="title-input">
+        <label htmlFor="title-input" className="form-label">
           Корейское название
           <input
             type="text"
@@ -46,7 +49,7 @@ function AddCalligraphyForm(): JSX.Element {
             {...register('koreantitle')}
           />
         </label>
-        <label htmlFor="link-input">
+        <label htmlFor="link-input" className="form-label">
           Ссылка скачивания
           <input
             type="text"
@@ -55,9 +58,11 @@ function AddCalligraphyForm(): JSX.Element {
             {...register('link')}
           />
         </label>
-        <button type="submit">Добавить</button>
+        <button type="submit" className="addform-btn">
+          Добавить
+        </button>
       </form>
-    </div>
+    </Container>
   );
 }
 
