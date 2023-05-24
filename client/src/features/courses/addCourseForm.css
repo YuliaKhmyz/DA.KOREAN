@@ -23,6 +23,7 @@
 }
 
 .addform-title {
+  align-self: flex-start;
   font-family: 'South';
   letter-spacing: 0.05em;
   font-size: 48px;

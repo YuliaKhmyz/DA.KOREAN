@@ -3,14 +3,11 @@ import { Link, Outlet } from 'react-router-dom';
 import './sideBar.css';
 
 function SideBar(): JSX.Element {
-  const [activeBtn, setActiveBtn] = useState('courses');
+  const [activeBtn, setActiveBtn] = useState('');
 
   return (
     <div className="sidebar">
-      <ul
-        style={{ width: '254px' }}
-        className="nav nav-pills flex-column mb-auto"
-      >
+      <ul className="nav nav-pills flex-column mb-auto">
         <li className="nav-item">
           <Link
             to="/admin/changecourses"

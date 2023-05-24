@@ -22,7 +22,16 @@
   justify-content: center;
 }
 
+.change-calligraphy {
+  width: 100%;
+  max-width: 800px;
+}
+.addform-container.container {
+  padding: 0;
+}
+
 .addform-title {
+  align-items: flex-start;
   font-family: 'South';
   letter-spacing: 0.05em;
   font-size: 48px;

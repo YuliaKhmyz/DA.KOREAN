@@ -7,7 +7,7 @@ import Section from '../../Components/Section/Section';
 
 function ChangeCallgraphy(): JSX.Element {
   return (
-    <div style={{ margin: '0 auto' }}>
+    <div className="change-calligraphy" style={{ margin: '0 auto' }}>
       <AddCalligraphyForm />
       <UpdateDeleteCalligraphies />
     </div>

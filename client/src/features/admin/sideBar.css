@@ -22,6 +22,10 @@
 .sidebar {
   display: flex;
 }
+.sidebar ul {
+  width: 100%;
+  max-width: 255px;
+}
 
 .sidebar .nav .nav-pills .flex-column {
   width: 50%;
