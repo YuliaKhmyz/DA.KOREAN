@@ -1,0 +1,9 @@
+@font-face {
+  font-family: 'South';
+  font-weight: 400;
+  src: local('South'), url('./South.woff2'), url('./South.woff') format('truetype');
+}
+
+.courses-page-container {
+  font-family: 'South', sans-serif;
+}
