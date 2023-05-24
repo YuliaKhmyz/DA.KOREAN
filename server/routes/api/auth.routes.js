@@ -62,6 +62,7 @@ authApiRouter.post('/login', async (req, res) => {
           id: user.id,
           name: user.name,
           email: user.email,
+          isAdmin: user.isAdmin,
         };
         req.session.userId = existingUser.id;
         res.status(201).json(existingUser);
