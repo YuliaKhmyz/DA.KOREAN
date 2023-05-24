@@ -27,6 +27,7 @@ export const createCalligraphy = createAsyncThunk(
     return api.createCalligraphy(title, link, koreantitle);
   }
 );
+
 export const loadCalligraphies = createAsyncThunk(
   'calligraphies/loadCalligraphies',
   () => api.getCalligraphy()

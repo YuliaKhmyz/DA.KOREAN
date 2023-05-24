@@ -5,3 +5,111 @@
 .hidden-element.active {
   display: block;
 }
+
+@font-face {
+  font-family: 'South';
+  font-weight: 400;
+  src: local('South'), url('./South.woff2'),
+    url('./South.woff') format('truetype');
+}
+
+.calligraphy-page-container {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.calligraphy-page-title {
+  font-family: 'South';
+  letter-spacing: 0.05em;
+  font-size: 48px;
+  text-transform: uppercase;
+  margin: 0px 0px 40px 0px;
+  text-align: center;
+}
+
+.calligraphy-wrapper {
+  background-color: #fcfaf6;
+  padding: 40px;
+  border-radius: 40px;
+  margin: 0px 0px 30px 0px;
+}
+
+.calligraphy-page-subtitle {
+  font-family: 'South';
+  letter-spacing: 0.01em;
+  word-spacing: 0.3em;
+  font-size: 24px;
+  text-transform: uppercase;
+  margin: 0px 0px 15px 0px;
+  text-align: center;
+}
+
+.calligraphy-page-container p {
+  text-indent: 1.5rem;
+  text-align: justify;
+}
+
+.calligraphy-image-wrapper {
+  position: relative;
+  max-width: 350px;
+  width: 100%;
+  margin: 0px 30px 0px 0px;
+}
+
+.calligraphy-bg-image {
+  width: 100%;
+  max-width: 350px;
+  border-radius: 40px;
+}
+
+.calligraphy-corean-title {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 600;
+  font-size: 160px;
+  color: #fcfaf6;
+  white-space: nowrap;
+}
+
+.calligraphy-item {
+  display: flex;
+  margin: 0px 0px 50px 0px;
+}
+
+.calligraphy-description-wrapper {
+  width: 100%;
+  max-width: 915px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.calligraphy-item-title {
+  font-family: 'South', sans-serif;
+  font-size: 30px;
+}
+
+.calligraphy-page-container .buy-btn {
+  font-family: 'South';
+  font-size: 20px;
+  border: 2px solid #201a1a;
+  color: #201a1a;
+}
+
+.calligraphy-page-container .buy-btn:hover {
+  border: 2px solid #6c757d;
+  color: white;
+}
+
+.calligraphy-page-container .buy-btn:active {
+  background-color: #545763;
+}
+
+/* .update-btn {
+  margin-bottom: 10px;
+} */
+
+.save-btn {
+  margin-bottom: 10px;
+}

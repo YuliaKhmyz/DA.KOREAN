@@ -22,7 +22,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          main_title: 'подготовка к topic',
+          main_title: 'подготовка к topik',
           main_description:
             'Мои ученики сдают topic на высший балл. Переезжают в Корею. Смотрят новые серии дорам первыми! И уверенно подпевают на K-Pop концертах ;)',
           start_title: 'начало курса в августе',
@@ -37,7 +37,7 @@ module.exports = {
           updatedAt: new Date(),
         },
       ],
-      {},
+      {}
     );
   },
 

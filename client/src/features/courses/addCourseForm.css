@@ -1,0 +1,62 @@
+@font-face {
+  font-family: 'South';
+  font-weight: 400;
+  src: local('South'), url('./South.woff2'),
+    url('./South.woff') format('truetype');
+}
+
+.addform-container {
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+.addform-container .addform {
+  font-size: 20px;
+  width: 100%;
+  max-width: 800px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.addform-title {
+  align-self: flex-start;
+  font-family: 'South';
+  letter-spacing: 0.05em;
+  font-size: 48px;
+  text-transform: uppercase;
+  margin: 0px 0px 40px 0px;
+}
+
+.addform .form-label {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.form-label textarea {
+  background: #fcfaf6;
+  border: 2px solid #bdbbbb;
+  width: 100%;
+  height: 56px;
+}
+
+.addform .addform-btn {
+  letter-spacing: 0.15rem;
+  font-family: 'South';
+  font-size: 20px;
+  border: 2px solid #201a1a;
+  color: #201a1a;
+  margin: 0px 0px 40px 0px;
+}
+
+.addform .addform-btn:hover {
+  border: 2px solid #6c757d;
+  color: white;
+}
+
+.addform .addform-btn:active {
+  background-color: #545763;
+}

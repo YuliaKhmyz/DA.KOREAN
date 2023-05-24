@@ -1,6 +1,5 @@
 import React from 'react';
 import NavbarComponent from '../../features/navbar/Navbar';
-import './header.css';
 
 function Header(): JSX.Element {
   const DROP_DIRECTION = 'down';
