@@ -1,17 +1,41 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 import { Course } from './types/Course';
+import './coursePageItem.css';
+import { separateNumbers } from '../../utils/utils';
 
-function CoursePageItem({ course }: { course: Course }): JSX.Element {
+type CoursePageItemProps = {
+  course: Course;
+};
+
+function CoursePageItem({ course }: CoursePageItemProps): JSX.Element {
   return (
-    <div>
-      <h2>{course.main_title}</h2>
-      <h3>{course.start_title}</h3>
-      <div>{course.start_description}</div>
-      <h3>{course.condition_title}</h3>
-      <div>{course.condition_description}</div>
-      <h3>{course.price_title}</h3>
-      <div>{course.price}</div>
-    </div>
+    <>
+      <h2 className="main-title">{course.main_title}</h2>
+
+      <div className="columns">
+        <div className="left-column column">
+          <h3 className="start-title">{course.start_title}</h3>
+          <div className="start-description">{course.start_description}</div>
+        </div>
+
+        <div className="middle-column column">
+          <h3 className="condition-title">{course.condition_title}</h3>
+          <div className="condition-description">{course.condition_description}</div>
+        </div>
+
+        <div className="right-column column">
+          <h3 className="price-title">{course.price_title}</h3>
+          <div className="price">{separateNumbers(course.price)} &#8381;</div>
+          <Link to="#">
+            <Button variant="outline-secondary" className="course-buy">
+              Купить
+            </Button>
+          </Link>
+        </div>
+      </div>
+    </>
   );
 }
 
