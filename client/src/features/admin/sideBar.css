@@ -1,0 +1,28 @@
+/* @font-face {
+  font-family: 'South';
+  font-weight: 400;
+  src: local('South'), url('./South.woff2'),
+    url('./South.woff') format('truetype');
+} */
+
+.sidebar .nav-item .nav-link {
+  text-align: center;
+  /* padding: 0; */
+}
+
+.sidebar .nav-pills .active {
+  background-color: #ffad00;
+  color: black;
+}
+
+.sidebar .nav-pills .nav-item .nav-link {
+  color: black;
+}
+
+.sidebar {
+  display: flex;
+}
+
+.sidebar .nav .nav-pills .flex-column {
+  width: 50%;
+}

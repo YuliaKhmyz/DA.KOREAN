@@ -56,20 +56,30 @@ function ChangeCalligraphyItem({
         </div>
       </div>
 
-      <div className="calligraphy-description-wrapper">
+      <div className="admin calligraphy-description-wrapper">
         {/* <h4>{calligraphy.koreantitle}</h4> */}
         <div className="calligraphy-item-title">{calligraphy.title}</div>
 
         {!show ? (
-          <Button
-            className="update-btn"
-            variant="outline-secondary"
-            type="button"
-            data-set={calligraphy.id}
-            onClick={() => addInput()}
-          >
-            Редактировать
-          </Button>
+          <div className="calligraphy-change-btns">
+            <Button
+              className="update-btn"
+              variant="outline-secondary"
+              type="button"
+              data-set={calligraphy.id}
+              onClick={() => addInput()}
+            >
+              Редактировать
+            </Button>
+            <Button
+              variant="outline-secondary"
+              className="delete-btn"
+              type="submit"
+              onClick={handleDelete}
+            >
+              Удалить
+            </Button>
+          </div>
         ) : (
           <Container className="updateform-container">
             {/* eslint-disable-next-line @typescript-eslint/no-misused-promises */}
@@ -107,18 +117,17 @@ function ChangeCalligraphyItem({
               >
                 Сохранить изменения
               </Button>
+              <Button
+                variant="outline-secondary"
+                className="delete-btn"
+                type="submit"
+                onClick={handleDelete}
+              >
+                Удалить
+              </Button>
             </form>
           </Container>
         )}
-
-        <Button
-          variant="outline-secondary"
-          className="delete-btn"
-          type="submit"
-          onClick={handleDelete}
-        >
-          Удалить
-        </Button>
       </div>
     </>
   );

@@ -8,12 +8,7 @@ import SideBar from './SideBar';
 function AdminPage(): JSX.Element {
   return (
     <Container>
-      <div>
-        {/* <Link to="/changecourses">Управление курсами</Link>
-        <a href="#">Редактирование каллиграфий</a>
-        <a href="#">Редактирование блога</a>
-        <a href="#">Информация об оплатах</a> */}
-      </div>
+      <div></div>
       <SideBar />
     </Container>
   );
