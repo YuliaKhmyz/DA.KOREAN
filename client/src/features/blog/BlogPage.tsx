@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { Container } from 'react-bootstrap';
 import PostItem from './PostItem';
 import { useAppDispatch } from '../../store';
 import { getPosts } from './postsSlice';
 import { selectPosts } from './selectors';
 import './blogPage.css';
 import Section from '../../Components/Section/Section';
-import { Container } from 'react-bootstrap';
 
 function BlogPage(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -18,7 +18,7 @@ function BlogPage(): JSX.Element {
 
   return (
     <Section>
-      <Container>
+      <Container className="blog-page">
         <div className="blog-page-title">
           <h2>Авторский блог</h2>
           <h3>Записки о Корее от магистра антропологии</h3>

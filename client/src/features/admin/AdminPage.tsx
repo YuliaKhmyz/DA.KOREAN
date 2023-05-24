@@ -4,13 +4,16 @@ import { Container } from 'react-bootstrap';
 import DeleteUpdateCourse from '../courses/DeleteUpdateCourse';
 import AddCourseForm from '../courses/AddCourseForm';
 import SideBar from './SideBar';
+import Section from '../../Components/Section/Section';
 
 function AdminPage(): JSX.Element {
   return (
-    <Container>
-      <div></div>
-      <SideBar />
-    </Container>
+    <Section>
+      <Container>
+        <div></div>
+        <SideBar />
+      </Container>
+    </Section>
   );
 }
 

@@ -21,22 +21,20 @@ function UpdateDeleteCalligraphies(): JSX.Element {
   };
 
   return (
-    <Section>
-      <Container>
-        <h3 className="calligraphy-page-title">Список каллиграфий</h3>
+    <Container>
+      <h3 className="calligraphy-page-title">Список каллиграфий</h3>
 
-        <div className="calligraphies">
-          {calligraphies.map((calligraphy) => (
-            <div className="calligraphy-item admin" key={calligraphy.id}>
-              <ChangeCalligraphyItem
-                calligraphy={calligraphy}
-                handleDelete={() => handleDelete(calligraphy.id)}
-              />
-            </div>
-          ))}
-        </div>
-      </Container>
-    </Section>
+      <div className="calligraphies">
+        {calligraphies.map((calligraphy) => (
+          <div className="calligraphy-item admin" key={calligraphy.id}>
+            <ChangeCalligraphyItem
+              calligraphy={calligraphy}
+              handleDelete={() => handleDelete(calligraphy.id)}
+            />
+          </div>
+        ))}
+      </div>
+    </Container>
   );
 }
 
