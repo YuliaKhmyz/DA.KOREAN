@@ -6,7 +6,7 @@ import { getPosts } from './postsSlice';
 import { selectPosts } from './selectors';
 import './blogPage.css';
 import Section from '../../Components/Section/Section';
-import { Container, Button } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 
 function BlogPage(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -29,26 +29,6 @@ function BlogPage(): JSX.Element {
               <PostItem post={post} />
             </div>
           ))}
-        </div>
-        <div className="blog-post-wrapper">
-          <form className="comment-form">
-            <h2 className="post-title">Комментарии</h2>
-            <label htmlFor="comment-input" className="form-label">
-              <input
-                type="text"
-                id="comment-input"
-                className="comment-input"
-                placeholder="Оставьте свой комментарий"
-              />
-            </label>
-          </form>
-          <Button
-            type="submit"
-            variant="outline-secondary"
-            className="send-comment-btn"
-          >
-            Отправить
-          </Button>
         </div>
       </Container>
     </Section>
