@@ -5,7 +5,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { Button, Container } from 'react-bootstrap';
 import { login } from './authSlice';
-import { selectLoginFormError } from './selectors';
+import { selectLoginFormError, selectUser } from './selectors';
 import { useAppDispatch } from '../../store';
 import './login.css';
 import Section from '../../Components/Section/Section';
@@ -20,6 +20,7 @@ function Login(): JSX.Element {
   const error = useSelector(selectLoginFormError);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const user = useSelector(selectUser);
 
   const onSubmit: SubmitHandler<FormInput> = async (data) => {
     const dispatchResult = await dispatch(
@@ -37,6 +38,7 @@ function Login(): JSX.Element {
       }
     }
   };
+  console.log(user);
 
   return (
     <Section>
@@ -51,13 +53,29 @@ function Login(): JSX.Element {
 
           <label htmlFor="email-input" className="form-label">
             Адрес электронной почты
-            <input type="email" id="email-input" className="email-input" placeholder="Введите адрес электронной почты" {...register('email')} />
+            <input
+              type="email"
+              id="email-input"
+              className="email-input"
+              placeholder="Введите адрес электронной почты"
+              {...register('email')}
+            />
           </label>
           <label htmlFor="password-input" className="form-label">
             Пароль
-            <input type="password" id="password-input" className="password-input" placeholder="Введите пароль" {...register('password')} />
+            <input
+              type="password"
+              id="password-input"
+              className="password-input"
+              placeholder="Введите пароль"
+              {...register('password')}
+            />
           </label>
-          <Button type="submit" variant="outline-secondary" className="login-btn">
+          <Button
+            type="submit"
+            variant="outline-secondary"
+            className="login-btn"
+          >
             Войти
           </Button>
         </form>

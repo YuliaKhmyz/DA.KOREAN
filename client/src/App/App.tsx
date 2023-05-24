@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import Login from '../features/auth/Login';
 import Register from '../features/auth/Register';
 
@@ -15,8 +16,12 @@ import ChangeCallgraphy from '../features/admin/ChangeCallgraphy';
 import AdminPage from '../features/admin/AdminPage';
 import ChangeBlog from '../features/admin/ChangeBlog';
 import PaymentInfo from '../features/admin/PaymentInfo';
+import { selectUser } from '../features/auth/selectors';
 
 function App(): JSX.Element {
+  const user = useSelector(selectUser);
+  console.log(user);
+
   return (
     <BrowserRouter>
       <Routes>
@@ -28,6 +33,7 @@ function App(): JSX.Element {
           <Route path="/blog" element={<BlogPage />} />
 
           <Route path="/mypage" element={<MyPage />} />
+
           <Route path="/admin" element={<AdminPage />}>
             <Route path="/admin/changecourses" element={<ChangeCourses />} />
             <Route
