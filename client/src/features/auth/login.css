@@ -52,6 +52,7 @@
   font-size: 20px;
   border: 2px solid #201a1a;
   color: #201a1a;
+  margin: 0px 0px 40px 0px;
 }
 
 .login .login-btn:hover {
