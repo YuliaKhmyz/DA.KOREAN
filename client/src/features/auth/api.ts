@@ -27,6 +27,7 @@ export async function login(credentials: Credentials): Promise<User> {
     const { error } = await res.json();
     throw error;
   }
+  console.log(res);
 
   return res.json();
 }

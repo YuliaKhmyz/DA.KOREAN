@@ -16,7 +16,9 @@ function MyPage(): JSX.Element {
   console.log(mycalligraphies);
 
   useEffect(() => {
-    dispatch(getMyCalligraphies());
+    if (user) {
+      dispatch(getMyCalligraphies());
+    }
 
     if (!user) {
       navigate('/');
