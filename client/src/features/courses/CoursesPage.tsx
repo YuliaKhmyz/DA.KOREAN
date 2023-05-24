@@ -13,7 +13,17 @@ import Section from '../../Components/Section/Section';
 function CoursesPage(): JSX.Element {
   const courses = useSelector(selectCourses);
   const dispatch = useAppDispatch();
+
+  // Поднятие страницы в начало
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }, []);
+
   console.log(courses);
+
   useEffect(() => {
     dispatch(loadCourses());
   }, [dispatch]);
