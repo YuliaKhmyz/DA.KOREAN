@@ -1,10 +1,12 @@
 // tasks/tasksSlice.ts
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import CalligraphiesState from './types/CalligraphyState';
+import UserPageState from './types/UserPageState';
 import * as api from './api';
 
-const initialState: CalligraphiesState = {
+const initialState: UserPageState = {
   calligraphies: [],
+  posts: [],
+  photo: '',
 };
 
 export const getMyCalligraphies = createAsyncThunk(
@@ -12,14 +14,22 @@ export const getMyCalligraphies = createAsyncThunk(
   () => api.getMyCalligraphies()
 );
 
+export const uploadPhoto = createAsyncThunk('photo/add', (action: any) =>
+  api.loadPhoto(action)
+);
+
 const userPageSlice = createSlice({
   name: 'calligraphies',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(getMyCalligraphies.fulfilled, (state, action) => {
-      state.calligraphies = action.payload;
-    });
+    builder
+      .addCase(getMyCalligraphies.fulfilled, (state, action) => {
+        state.calligraphies = action.payload;
+      })
+      .addCase(uploadPhoto.fulfilled, (state, action) => {
+        state.photo = action.payload;
+      });
   },
 });
 

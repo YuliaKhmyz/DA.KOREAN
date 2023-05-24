@@ -31,7 +31,6 @@ function CalligraphyPage(): JSX.Element {
   const calligraphies = useSelector(selectCalligraphies);
 
   const onSubmit: SubmitHandler<FormInput> = async (data) => {
-    console.log(data);
     const dispatchResult = await dispatch(createCalligraphy(data));
     if (createCalligraphy.fulfilled.match(dispatchResult)) {
       reset();
@@ -104,7 +103,6 @@ function CalligraphyPage(): JSX.Element {
 
         <div className="calligraphies">
           {calligraphies.map((calligraphy) => (
-
             <div className="calligraphy-item" key={calligraphy.id}>
               <CalligraphyItem
                 calligraphy={calligraphy}
@@ -115,7 +113,6 @@ function CalligraphyPage(): JSX.Element {
             </div>
           ))}
         </div>
-
         {/* <form onSubmit={handleSubmit(onSubmit)}>
           <h3>Форма добавления прописи</h3>
           <label htmlFor="title-input">

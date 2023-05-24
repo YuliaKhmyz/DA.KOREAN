@@ -1,9 +1,5 @@
 const calligraphyRouter = require('express').Router();
-const {
-  CalligraphyCourse,
-  BoughtCalligraphy,
-  User,
-} = require('../../db/models');
+const { CalligraphyCourse, BoughtCalligraphy } = require('../../db/models');
 
 calligraphyRouter.get('/', async (req, res) => {
   try {
