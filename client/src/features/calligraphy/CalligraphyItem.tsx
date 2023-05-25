@@ -12,7 +12,6 @@ import koreanSpringBg from './korean_spring_bg.jpg';
 import koreanSummerBg from './korean_summer_bg.jpg';
 import koreanAutumnBg from './korean_autumn_bg.jpg';
 import koreanWinterBg from './korean_winter_bg.jpg';
-import { useSelector } from 'react-redux';
 import { selectUser } from '../auth/selectors';
 
 function CalligraphyItem({
