@@ -90,6 +90,16 @@
   font-size: 30px;
 }
 
+.calligraphy-item-price {
+  font-family: 'South', sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.calligraphy-item-price::after {
+  content: ' p';
+}
+
 .calligraphy-page-container .buy-btn {
   font-family: 'South';
   font-size: 20px;

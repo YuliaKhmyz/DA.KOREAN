@@ -12,6 +12,7 @@ import koreanSpringBg from './korean_spring_bg.jpg';
 import koreanSummerBg from './korean_summer_bg.jpg';
 import koreanAutumnBg from './korean_autumn_bg.jpg';
 import koreanWinterBg from './korean_winter_bg.jpg';
+import { useSelector } from 'react-redux';
 import { selectUser } from '../auth/selectors';
 
 function CalligraphyItem({
@@ -52,6 +53,8 @@ function CalligraphyItem({
           из них можно приобрести отдельно или все вместе со скидкой.
         </p>
 
+        <div className="calligraphy-item-price">{calligraphy.price}</div>
+
         <Button
           variant="outline-secondary"
           className="buy-btn"
@@ -61,7 +64,7 @@ function CalligraphyItem({
             }
             if (user) {
               handleBuyCalligraphy(calligraphy.id);
-              navigate(`/payment/${calligraphy.id}`);
+              navigate(`/payment/${calligraphy.type}/${calligraphy.id}`);
             }
           }}
         >
