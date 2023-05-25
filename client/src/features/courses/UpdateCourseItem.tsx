@@ -53,6 +53,7 @@ function UpdateCourseItem({ course }: { course: Course }): JSX.Element {
         condition_description: data.condition_description,
         price_title: data.price_title,
         price: data.price,
+        type: cangedItem.type,
       }),
     );
     setShow((prev) => !prev);

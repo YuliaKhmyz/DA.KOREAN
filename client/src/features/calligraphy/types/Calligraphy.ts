@@ -5,6 +5,8 @@ export type Calligraphy = {
   link: string;
   title: string;
   koreantitle: string;
+  price: number;
+  type: string;
 };
 
 export type CalligraphyId = Calligraphy['id'];

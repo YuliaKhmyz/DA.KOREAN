@@ -47,6 +47,10 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
+      type: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+      },
       createdAt: {
         allowNull: false,
         type: DataTypes.DATE,
@@ -59,7 +63,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: 'Course',
-    }
+    },
   );
   return Course;
 };

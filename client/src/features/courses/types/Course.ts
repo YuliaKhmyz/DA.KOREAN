@@ -10,6 +10,7 @@ export type Course = {
   condition_description: string;
   price_title: string;
   price: number;
+  type: string;
 };
 
 export type CourseId = Course['id'];
