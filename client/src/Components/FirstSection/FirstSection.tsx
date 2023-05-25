@@ -23,7 +23,11 @@ function FirstSection(): JSX.Element {
         <div className="first-section_up">
           <div className="first-section_left">
             <h1 className="title">Корейский язык в авторском курсе от Дарьи</h1>
-            <p className="description">Больше __ лет живу в Корее. Сдала topic на 97/100. Создаю уникальные прописи для изучения тонкостей и особенностей корейской каллиграфии, веду личный блог о жизни в Корее.</p>
+            <p className="description">
+              Больше __ лет живу в Корее. Сдала topik на 97/100. Создаю
+              уникальные прописи для изучения тонкостей и особенностей корейской
+              каллиграфии, веду личный блог о жизни в Корее.
+            </p>
             <Link to="#">
               <Button variant="warning" className="lesson-sign-up">
                 Записаться на урок
