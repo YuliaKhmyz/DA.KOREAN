@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { Button } from 'react-bootstrap';
 import { Calligraphy, CalligraphyId } from './types/Calligraphy';
 
@@ -11,7 +12,6 @@ import koreanSpringBg from './korean_spring_bg.jpg';
 import koreanSummerBg from './korean_summer_bg.jpg';
 import koreanAutumnBg from './korean_autumn_bg.jpg';
 import koreanWinterBg from './korean_winter_bg.jpg';
-import { useSelector } from 'react-redux';
 import { selectUser } from '../auth/selectors';
 
 function CalligraphyItem({
@@ -61,7 +61,7 @@ function CalligraphyItem({
             }
             if (user) {
               handleBuyCalligraphy(calligraphy.id);
-              navigate('/mypage');
+              navigate(`/payment/${calligraphy.id}`);
             }
           }}
         >
