@@ -8,7 +8,7 @@ const transporter = nodemailer.createTransport(
     secure: true, // true for 465, false for other ports
     auth: {
       user: 'xmyza@mail.ru', // ваша почта яндекс
-      pass: 'sWHZrfJnSJJnetUkQFdE',
+      pass: 'Vkep3sbfRXgd3XA0BZpA',
 
       // потом нужно Создайте пароль приложения в яндексе на почте и вставит в сточку выше
     },
