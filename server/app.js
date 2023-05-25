@@ -21,7 +21,7 @@ app.use('/api/auth', authApiRouter);
 app.use('/api/calligraphies', calligraphiesApiRouter);
 app.use('/api/courses', courseRouter);
 app.use('/api/posts', postsApiRouter);
-app.use('/api', emailApiRouter);
+app.use('/api/email', emailApiRouter);
 
 try {
   app.listen(PORT, () => {

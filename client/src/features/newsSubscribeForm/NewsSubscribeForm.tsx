@@ -13,8 +13,7 @@ function NewsSubscribeForm(): JSX.Element {
   const dispatch = useAppDispatch();
 
   const onSubmit: SubmitHandler<FormInput> = async (data) => {
-    console.log(data.email);
-    const dispatchResult = await dispatch(sendNews(String(data.email)));
+    const dispatchResult = await dispatch(sendNews(data.email));
     console.log(dispatchResult);
   };
 
