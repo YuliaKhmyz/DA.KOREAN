@@ -71,3 +71,19 @@
 .send-comment-btn {
   background-color: #ddd;
 }
+
+.auth-btn {
+  background-color: #ddd;
+}
+
+.container-comment-auth {
+  display: flex;
+  flex-direction: row;
+}
+
+.auth-link {
+  text-decoration: none;
+  font-family: 'South', sans-serif;
+  color: #ff5e00;
+  margin-left: 15px;
+}
