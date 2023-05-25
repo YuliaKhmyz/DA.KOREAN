@@ -17,7 +17,9 @@ import AdminPage from '../features/admin/AdminPage';
 import ChangeBlog from '../features/admin/ChangeBlog';
 import PaymentInfo from '../features/admin/PaymentInfo';
 import { selectUser } from '../features/auth/selectors';
+import NotFoundPage from '../Components/NotFoundPage/NotFoundPage';
 import Payment from '../Components/Payment/Payment';
+
 
 function App(): JSX.Element {
   const user = useSelector(selectUser);
@@ -38,15 +40,13 @@ function App(): JSX.Element {
 
           <Route path="/admin" element={<AdminPage />}>
             <Route path="/admin/changecourses" element={<ChangeCourses />} />
-            <Route
-              path="/admin/changecalligraphy"
-              element={<ChangeCallgraphy />}
-            />
+            <Route path="/admin/changecalligraphy" element={<ChangeCallgraphy />} />
             <Route path="/admin/updateblog" element={<ChangeBlog />} />
             <Route path="/admin/paymentinfo" element={<PaymentInfo />} />
           </Route>
 
           <Route path="/courses" element={<CoursesPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
