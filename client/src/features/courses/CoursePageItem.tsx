@@ -1,15 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { Button } from 'react-bootstrap';
 import { Course } from './types/Course';
 import './coursePageItem.css';
 import { separateNumbers } from '../../utils/utils';
+import { selectUser } from '../auth/selectors';
 
 type CoursePageItemProps = {
   course: Course;
 };
 
 function CoursePageItem({ course }: CoursePageItemProps): JSX.Element {
+  const navigate = useNavigate();
+  const user = useSelector(selectUser);
   return (
     <>
       <h2 className="main-title">{course.main_title}</h2>
@@ -30,11 +34,21 @@ function CoursePageItem({ course }: CoursePageItemProps): JSX.Element {
         <div className="right-column column">
           <h3 className="price-title">{course.price_title}</h3>
           <div className="price">{separateNumbers(course.price)} Р</div>
-          <Link to="#">
-            <Button variant="outline-secondary" className="course-buy">
-              Купить
-            </Button>
-          </Link>
+
+          <Button
+            variant="outline-secondary"
+            className="course-buy"
+            onClick={() => {
+              if (!user) {
+                navigate('/auth/login');
+              }
+              if (user) {
+                navigate(`/payment/${course.type}/${course.id}`);
+              }
+            }}
+          >
+            Купить
+          </Button>
         </div>
       </div>
     </>

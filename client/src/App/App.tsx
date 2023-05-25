@@ -18,6 +18,8 @@ import ChangeBlog from '../features/admin/ChangeBlog';
 import PaymentInfo from '../features/admin/PaymentInfo';
 import { selectUser } from '../features/auth/selectors';
 import NotFoundPage from '../Components/NotFoundPage/NotFoundPage';
+import Payment from '../Components/Payment/Payment';
+
 
 function App(): JSX.Element {
   const user = useSelector(selectUser);
@@ -34,6 +36,7 @@ function App(): JSX.Element {
           <Route path="/blog" element={<BlogPage />} />
 
           <Route path="/mypage" element={<MyPage />} />
+          <Route path="/payment/:type/:id" element={<Payment />} />
 
           <Route path="/admin" element={<AdminPage />}>
             <Route path="/admin/changecourses" element={<ChangeCourses />} />

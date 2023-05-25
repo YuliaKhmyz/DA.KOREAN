@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react';
-import { Post, PostId } from './types/Post';
+import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from '../../store';
 // import { selectComments } from './selectors';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { Post, PostId } from './types/Post';
+import { useAppDispatch } from '../../store';
 // import { createComment } from './commentsSlice';
-import { Button } from 'react-bootstrap';
 import pic2 from './pic2.jpg';
+import { selectUser } from '../auth/selectors';
 import CommentItem from './CommentItem';
 
 interface FormInput {
@@ -15,6 +17,7 @@ interface FormInput {
 
 function PostItem({ post }: { post: Post }): JSX.Element {
   const { register, handleSubmit, reset } = useForm<FormInput>();
+  const user = useSelector(selectUser);
   const dispatch = useAppDispatch();
   // const comments = useSelector(selectComments);
 
@@ -48,27 +51,44 @@ function PostItem({ post }: { post: Post }): JSX.Element {
           </div>
         ))}
       </div> */}
-      <div className="blog-post-wrapper">
-        <form className="comment-form" onSubmit={handleSubmit(onSubmit)}>
-          <h2 className="post-title">Комментарии</h2>
-          <label htmlFor="comment-input" className="form-label">
-            <input
-              type="text"
-              id="comment-input"
-              className="comment-input"
-              placeholder="Оставьте свой комментарий"
-              {...register('comment')}
-            />
-          </label>
-        </form>
-        <Button
-          type="submit"
-          variant="outline-secondary"
-          className="send-comment-btn"
-        >
-          Отправить
-        </Button>
-      </div>
+      {user && (
+        <div className="blog-post-wrapper">
+          <form className="comment-form" onSubmit={handleSubmit(onSubmit)}>
+            <h2 className="post-title">Комментарии</h2>
+            <label htmlFor="comment-input" className="form-label">
+              <input
+                type="text"
+                id="comment-input"
+                className="comment-input"
+                placeholder="Оставьте свой комментарий"
+                {...register('comment')}
+              />
+            </label>
+          </form>
+          <Button
+            type="submit"
+            variant="outline-secondary"
+            className="send-comment-btn"
+          >
+            Отправить
+          </Button>
+        </div>
+      )}
+      {!user && (
+        <div>
+          {' '}
+          <br />
+          <div className="container-comment-auth">
+            {' '}
+            <div className="post-title-link">
+              Чтобы оставить комментарии, нужно авторизоваться!
+            </div>
+            <Link className="auth-link" to="/auth/login">
+              Вход
+            </Link>
+          </div>
+        </div>
+      )}
       {/* <img src="/images/pic1.jpg" alt="" /> */}
     </div>
   );

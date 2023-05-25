@@ -1,0 +1,40 @@
+.courses-page .course-delete {
+  font-family: 'South';
+  font-size: 20px;
+  border: 2px solid #201a1a;
+  color: #201a1a;
+}
+
+.courses-page .course-delete:hover {
+  border: 2px solid #6c757d;
+  color: white;
+}
+
+.courses-page .course-delete:active {
+  background-color: #545763;
+}
+
+.courses-page .course-update {
+  font-family: 'South';
+  font-size: 20px;
+  border: 2px solid #201a1a;
+  color: #201a1a;
+}
+
+.courses-page .course-update:hover {
+  border: 2px solid #6c757d;
+  color: white;
+}
+
+.courses-page .course-update:active {
+  background-color: #545763;
+}
+
+.middle-column.column.change {
+  margin-bottom: 40px;
+}
+
+.courses-page .middle-column .start-title {
+  font-family: 'South', sans-serif;
+  margin: 0px 0px 15px 0px;
+}

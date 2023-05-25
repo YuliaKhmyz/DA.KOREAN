@@ -43,6 +43,8 @@ function ChangeCalligraphyItem({
         title: data.title,
         link: data.link,
         koreantitle: data.koreantitle,
+        price: cangedItem.price,
+        type: cangedItem.type,
       }),
     );
     setShow((prev) => !prev);
