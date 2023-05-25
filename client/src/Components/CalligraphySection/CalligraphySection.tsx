@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './calligraphySection.css';
 import { Button, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -8,6 +8,14 @@ import hierog_autumn from './hierog_autumn.svg';
 import hierog_winter from './hierog_winter.svg';
 
 function CalligraphySection(): JSX.Element {
+  // Поднятие страницы в начало
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }, []);
+
   return (
     <Container style={{ height: '100vh' }}>
       <div className="calligraphy column-content-container">

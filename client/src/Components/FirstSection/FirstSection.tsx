@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import { Link } from 'react-router-dom';
@@ -9,17 +9,21 @@ import pointYellow from './point_yellow.png';
 import pointBlue from './point_blue.png';
 
 function FirstSection(): JSX.Element {
+  // Поднятие страницы в начало
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }, []);
+
   return (
     <Container>
       <div className="first-section column-content-container">
         <div className="first-section_up">
           <div className="first-section_left">
             <h1 className="title">Корейский язык в авторском курсе от Дарьи</h1>
-            <p className="description">
-              Больше __ лет живу в Корее. Сдала topic на 97/100. Создаю
-              уникальные прописи для изучения тонкостей и особенностей корейской
-              каллиграфии, веду личный блог о жизни в Корее.
-            </p>
+            <p className="description">Больше __ лет живу в Корее. Сдала topic на 97/100. Создаю уникальные прописи для изучения тонкостей и особенностей корейской каллиграфии, веду личный блог о жизни в Корее.</p>
             <Link to="#">
               <Button variant="warning" className="lesson-sign-up">
                 Записаться на урок

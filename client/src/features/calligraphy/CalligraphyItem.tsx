@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { Button } from 'react-bootstrap';
 import { Calligraphy, CalligraphyId } from './types/Calligraphy';
 
@@ -51,6 +52,7 @@ function CalligraphyItem({
           разработала анти-стресс прописи для изучения корейского письма. Каждую
           из них можно приобрести отдельно или все вместе со скидкой.
         </p>
+
         <div className="calligraphy-item-price">{calligraphy.price}</div>
 
         <Button
