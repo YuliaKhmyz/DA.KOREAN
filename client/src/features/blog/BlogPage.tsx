@@ -12,6 +12,14 @@ function BlogPage(): JSX.Element {
   const dispatch = useAppDispatch();
   const posts = useSelector(selectPosts);
 
+  // Поднятие страницы в начало
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }, []);
+
   useEffect(() => {
     dispatch(getPosts());
   }, [dispatch]);

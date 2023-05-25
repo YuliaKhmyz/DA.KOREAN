@@ -1,0 +1,7 @@
+.up-btn {
+  position: fixed;
+  right: 2%;
+  bottom: 5%;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}

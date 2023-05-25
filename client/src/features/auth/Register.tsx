@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -22,6 +22,14 @@ function Register(): JSX.Element {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const error = useSelector(selectRegisterFormError);
+
+  // Поднятие страницы в начало
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }, []);
 
   const onSubmit: SubmitHandler<FormInput> = React.useCallback(
     async (data) => {
