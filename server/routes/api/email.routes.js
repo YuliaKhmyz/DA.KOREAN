@@ -5,6 +5,7 @@ const { Email } = require('../../db/models');
 
 emailApiRouter.post('/email', async (req, res) => {
   const { email } = req.body;
+  console.log(email);
 
   const existingEmail = await Email.findOne({ where: { email } });
 

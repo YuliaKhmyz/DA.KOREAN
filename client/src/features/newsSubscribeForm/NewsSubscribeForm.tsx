@@ -1,7 +1,7 @@
 import React from 'react';
+import { Button, Form } from 'react-bootstrap';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useAppDispatch } from '../../store';
-import { Button, Form } from 'react-bootstrap';
 import { sendNews } from './newsSubscribeFormSlice';
 
 type FormInput = {
