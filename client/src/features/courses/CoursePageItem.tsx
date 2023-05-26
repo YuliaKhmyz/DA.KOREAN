@@ -26,9 +26,7 @@ function CoursePageItem({ course }: CoursePageItemProps): JSX.Element {
 
         <div className="middle-column column">
           <h3 className="condition-title">{course.condition_title}</h3>
-          <div className="condition-description">
-            {course.condition_description}
-          </div>
+          <div className="condition-description">{course.condition_description}</div>
         </div>
 
         <div className="right-column column">

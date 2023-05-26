@@ -11,7 +11,6 @@ function Payment(): JSX.Element {
   const callId = Number(id);
   const calligraphies = useSelector(selectCalligraphies);
   const courses = useSelector(selectCourses);
-  console.log(calligraphies);
   let name;
   // (type === 'calligraphy') ? (name=calligraphies[callId - 1].price) : (name=calligraphies[callId - 1].price)
   if (type === 'calligraphy') {
@@ -27,16 +26,8 @@ function Payment(): JSX.Element {
     <Section>
       <div>
         <br />
-        <link
-          rel="stylesheet"
-          href="https://yookassa.ru/integration/simplepay/css/yookassa_construct_form.css"
-        />
-        <form
-          className="yoomoney-payment-form"
-          action="https://yookassa.ru/integration/simplepay/payment"
-          method="post"
-          acceptCharset="utf-8"
-        >
+        <link rel="stylesheet" href="https://yookassa.ru/integration/simplepay/css/yookassa_construct_form.css" />
+        <form className="yoomoney-payment-form" action="https://yookassa.ru/integration/simplepay/payment" method="post" acceptCharset="utf-8">
           <div className="ym-payment-btn-block ym-align-space-between">
             <div className="ym-input-icon-rub">
               <input
@@ -49,21 +40,13 @@ function Payment(): JSX.Element {
                 // disabled
               />
             </div>
-            <button
-              data-text="Заплатить"
-              className="ym-btn-pay ym-result-price"
-              type="submit"
-            >
-              <span className="ym-text-crop">Заплатить</span>{' '}
-              <span className="ym-price-output"></span>
+            <button data-text="Заплатить" className="ym-btn-pay ym-result-price" type="submit">
+              <span className="ym-text-crop">Заплатить</span> <span className="ym-price-output"></span>
             </button>
           </div>
           <input name="shopId" type="hidden" value="323593" />
         </form>
-        <script
-          defer
-          src="https://yookassa.ru/integration/simplepay/js/yookassa_construct_form.js"
-        />
+        <script defer src="https://yookassa.ru/integration/simplepay/js/yookassa_construct_form.js" />
       </div>
     </Section>
   );

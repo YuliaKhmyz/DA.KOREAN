@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Container } from 'react-bootstrap';
@@ -11,6 +11,15 @@ import Layout from '../../App/Layout';
 
 function AdminPage(): JSX.Element {
   const user = useSelector(selectUser);
+
+  // Поднятие страницы в начало
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }, []);
+
   return (
     <div>
       {user?.isAdmin ? (

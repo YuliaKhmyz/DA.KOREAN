@@ -39,11 +39,6 @@ function CalligraphyPage(): JSX.Element {
     }
   };
 
-  // const handleDelete = (id: CalligraphyId): void => {
-  //   dispatch(deleteCalligraphy(id));
-  //   console.log(id);
-  // };
-
   useEffect(() => {
     dispatch(loadCalligraphies());
   }, [dispatch]);
@@ -89,32 +84,6 @@ function CalligraphyPage(): JSX.Element {
             </div>
           ))}
         </div>
-        {/* <form onSubmit={handleSubmit(onSubmit)}>
-          <h3>Форма добавления прописи</h3>
-          <label htmlFor="title-input">
-            Название прописи
-            
-            <input type="text" placeholder="введите название" id="title-input" {...register('title')} />
-          </label>
-          <label htmlFor="title-input">
-            Корейское название
-            <input type="text" placeholder="корейское название" id="koreantitle-input" {...register('koreantitle')} />
-          </label>
-          <label htmlFor="link-input">
-            Ссылка скачивания
-            <input type="text" placeholder="введите ссылку" id="link-input" {...register('link')} />
-          </label>
-          <button type="submit">Добавить</button>
-        </form>
-        <h3>Список каллиграфий для админа</h3>
-
-        <div>
-          {calligraphies.map((calligraphy) => (
-            <div key={calligraphy.id}>
-              <ChangeCalligraphyItem calligraphy={calligraphy} handleDelete={() => handleDelete(calligraphy.id)} />
-            </div>
-          ))}
-        </div>  */}
       </Container>
     </Section>
   );
