@@ -20,6 +20,7 @@ courseRouter.post('/', async (req, res) => {
     condition_description: req.body.condition_description,
     price_title: req.body.price_title,
     price: req.body.price,
+    type: 'course',
   });
 
   return res.status(201).json(course);

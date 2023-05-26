@@ -23,6 +23,7 @@ calligraphyRouter.post('/', async (req, res) => {
     title: req.body.title,
     link: req.body.link,
     koreantitle: req.body.koreantitle,
+    type: 'calligraphy',
   });
 
   return res.status(201).json(calligraphy);

@@ -33,8 +33,10 @@ function MyPage(): JSX.Element {
     <Section>
       <Container className="user-page-container user-page">
         <h4 className="greetings">
-          <span className="username">{user?.name}!</span> Добро пожаловать в личный кабинет! 오늘도 좋은 하루~
+          <span className="username">{user?.name}!</span> Добро пожаловать в
+          личный кабинет!
         </h4>
+        <h4 className="greetings">어서 오세요~ 오늘도 좋은 하루~</h4>
         <h5 className="page-subtitle">Мой календарь</h5>
         <MyCalender />
 
@@ -50,12 +52,12 @@ function MyPage(): JSX.Element {
                 <div className="calligraphy-subtitle">{calligraphy.title}</div>
                 <Link to={calligraphy.link}>
                   <Button variant="outline-secondary" className="download">
-                    Загрузить
+                    Скачать
                   </Button>
                 </Link>
               </div>
             ))}
-                    <UploadFile />
+            {/* <UploadFile /> */}
           </div>
         )}
       </Container>
