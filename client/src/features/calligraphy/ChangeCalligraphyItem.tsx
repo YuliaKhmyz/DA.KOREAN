@@ -5,6 +5,7 @@ import { Calligraphy, CalligraphyId } from './types/Calligraphy';
 import { useAppDispatch } from '../../store';
 import { updateCalligraphy } from './calligraphiesSlice';
 import './updateCalligraphy.css';
+import './changeCalligraphyItem.css';
 
 interface FormInput {
   title: string;
@@ -12,13 +13,7 @@ interface FormInput {
   link: string;
 }
 
-function ChangeCalligraphyItem({
-  calligraphy,
-  handleDelete,
-}: {
-  calligraphy: Calligraphy;
-  handleDelete: React.MouseEventHandler<HTMLButtonElement>;
-}): JSX.Element {
+function ChangeCalligraphyItem({ calligraphy, handleDelete }: { calligraphy: Calligraphy; handleDelete: React.MouseEventHandler<HTMLButtonElement> }): JSX.Element {
   const dispatch = useAppDispatch();
   const [show, setShow] = useState(false);
 
@@ -53,9 +48,7 @@ function ChangeCalligraphyItem({
   return (
     <>
       <div className="calligraphy-image-wrapper">
-        <div className="calligraphy-corean-title">
-          {calligraphy.koreantitle}
-        </div>
+        <div className="calligraphy-corean-title">{calligraphy.koreantitle}</div>
       </div>
 
       <div className="admin calligraphy-description-wrapper">
@@ -64,21 +57,10 @@ function ChangeCalligraphyItem({
 
         {!show ? (
           <div className="calligraphy-change-btns">
-            <Button
-              className="update-btn"
-              variant="outline-secondary"
-              type="button"
-              data-set={calligraphy.id}
-              onClick={() => addInput()}
-            >
+            <Button className="update-btn" variant="outline-secondary" type="button" data-set={calligraphy.id} onClick={() => addInput()}>
               Редактировать
             </Button>
-            <Button
-              variant="outline-secondary"
-              className="delete-btn"
-              type="submit"
-              onClick={handleDelete}
-            >
+            <Button variant="outline-secondary" className="delete-btn" type="submit" onClick={handleDelete}>
               Удалить
             </Button>
           </div>
@@ -97,34 +79,16 @@ function ChangeCalligraphyItem({
               </label>
               <label htmlFor="title" className="updateform-label">
                 {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-                <input
-                  id="title"
-                  defaultValue={calligraphy.title}
-                  {...register('title')}
-                />
+                <input id="title" defaultValue={calligraphy.title} {...register('title')} />
               </label>
               <label htmlFor="link" className="updateform-label">
                 {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-                <input
-                  id="link"
-                  defaultValue={calligraphy.link}
-                  {...register('link')}
-                />
+                <input id="link" defaultValue={calligraphy.link} {...register('link')} />
               </label>
-              <Button
-                variant="outline-secondary"
-                className="save-btn"
-                type="submit"
-                onClick={() => handleUpdate(calligraphy)}
-              >
+              <Button variant="outline-secondary" className="save-btn" type="submit" onClick={() => handleUpdate(calligraphy)}>
                 Сохранить изменения
               </Button>
-              <Button
-                variant="outline-secondary"
-                className="delete-btn"
-                type="submit"
-                onClick={handleDelete}
-              >
+              <Button variant="outline-secondary" className="delete-btn" type="submit" onClick={handleDelete}>
                 Удалить
               </Button>
             </form>

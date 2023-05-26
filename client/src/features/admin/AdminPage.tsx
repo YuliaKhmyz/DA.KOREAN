@@ -22,7 +22,9 @@ function AdminPage(): JSX.Element {
         </Section>
       ) : (
         <Section>
-          <div>У вас нет прав</div>
+          <Container>
+            <div>У вас нет прав</div>
+          </Container>
         </Section>
       )}
     </div>
