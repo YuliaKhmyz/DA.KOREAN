@@ -21,7 +21,7 @@ function SuccessSubscribeModal({ toggleModal }: SuccessSubscribeModalProps): JSX
           </div>
 
           <div className="modal-footer">
-            <Link to="/courses">
+            <Link to="#">
               <Button variant="outline-secondary" className="close-btn" onClick={toggleModal}>
                 Закрыть
               </Button>

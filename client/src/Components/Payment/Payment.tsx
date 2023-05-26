@@ -5,6 +5,7 @@ import { selectCalligraphies } from '../../features/calligraphy/selectors';
 import { useParams } from 'react-router-dom';
 import { selectMyCalligraphies } from '../../features/userpage/selectors';
 import { selectCourses } from '../../features/courses/selectors';
+import './payment.css';
 
 function Payment(): JSX.Element {
   const { type, id } = useParams();
@@ -24,7 +25,7 @@ function Payment(): JSX.Element {
 
   return (
     <Section>
-      <div>
+      {/* <div>
         <br />
         <link rel="stylesheet" href="https://yookassa.ru/integration/simplepay/css/yookassa_construct_form.css" />
         <form className="yoomoney-payment-form" action="https://yookassa.ru/integration/simplepay/payment" method="post" acceptCharset="utf-8">
@@ -47,6 +48,46 @@ function Payment(): JSX.Element {
           <input name="shopId" type="hidden" value="323593" />
         </form>
         <script defer src="https://yookassa.ru/integration/simplepay/js/yookassa_construct_form.js" />
+      </div> */}
+      <div className="payment-container">
+        <br />
+        <link
+          rel="stylesheet"
+          href="https://yookassa.ru/integration/simplepay/css/yookassa_construct_form.css"
+        />
+        <form
+          className="yoomoney-payment-form"
+          action="https://yookassa.ru/integration/simplepay/payment"
+          method="post"
+          acceptCharset="utf-8"
+        >
+          <div className="ym-payment-btn-block">
+            <div className="ym-input-icon-rub ym-display-none">
+              <input
+                name="sum"
+                placeholder="0.00"
+                className="ym-input ym-sum-input ym-required-input"
+                type="number"
+                step="any"
+                // defaultValue={name}
+                value={name}
+              />
+            </div>
+            <div className="payment-wrapper">
+              <div className="price">{name} руб.</div>
+              <button
+                data-text="Заплатить"
+                className="ym-btn-pay ym-result-price"
+                type="submit"
+              >
+                <span className="ym-text-crop">Заплатить</span>{' '}
+                <span className="ym-price-output" />
+              </button>
+            </div>
+          </div>
+          <input name="shopId" type="hidden" value="323593" />
+        </form>
+        <script src="https://yookassa.ru/integration/simplepay/js/yookassa_construct_form.js" />
       </div>
     </Section>
   );
