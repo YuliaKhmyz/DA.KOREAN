@@ -15,23 +15,53 @@ import koreanWinterBg from './korean_winter_bg.jpg';
 import { selectUser } from '../auth/selectors';
 import { selectMyCalligraphies } from '../userpage/selectors';
 
-function CalligraphyItem({ calligraphy, handleBuyCalligraphy }: { calligraphy: Calligraphy; handleBuyCalligraphy: (id: CalligraphyId) => void }): JSX.Element {
+function CalligraphyItem({
+  calligraphy,
+  handleBuyCalligraphy,
+}: {
+  calligraphy: Calligraphy;
+  handleBuyCalligraphy: (id: CalligraphyId) => void;
+}): JSX.Element {
   const navigate = useNavigate();
   const user = useSelector(selectUser);
   const myCalligraphies = useSelector(selectMyCalligraphies);
   console.log('myCalligraphies', myCalligraphies);
 
-  const images = [koreanSpringBg, koreanSummerBg, koreanAutumnBg, koreanWinterBg];
+  const images = [
+    koreanSpringBg,
+    koreanSummerBg,
+    koreanAutumnBg,
+    koreanWinterBg,
+    koreanSpringBg,
+    koreanSummerBg,
+    koreanAutumnBg,
+    koreanWinterBg,
+    koreanSpringBg,
+    koreanSummerBg,
+    koreanAutumnBg,
+    koreanWinterBg,
+  ];
 
   return (
     <>
       <div className="calligraphy-image-wrapper">
-        <img src={images[calligraphy.id - 1]} alt="осень в Корее" className="calligraphy-bg-image" />
-        <div className="calligraphy-corean-title">{calligraphy.koreantitle}</div>
+        <img
+          src={images[calligraphy.id - 1]}
+          alt="осень в Корее"
+          className="calligraphy-bg-image"
+        />
+        <div className="calligraphy-corean-title">
+          {calligraphy.koreantitle}
+        </div>
       </div>
       <div className="calligraphy-description-wrapper">
         <div className="calligraphy-item-title">{calligraphy.title}</div>
-        <p>Я разработала анти-стресс прописи для изучения корейского письма. Каждую из них можно приобрести отдельно или все вместе со скидкой. Я разработала анти-стресс прописи для изучения корейского письма. Каждую из них можно приобрести отдельно или все вместе со скидкой.</p>
+        <p>
+          Я разработала анти-стресс прописи для изучения корейского письма.
+          Каждую из них можно приобрести отдельно или все вместе со скидкой. Я
+          разработала анти-стресс прописи для изучения корейского письма. Каждую
+          из них можно приобрести отдельно или все вместе со скидкой.
+        </p>
 
         <div className="calligraphy-item-price">{calligraphy.price}</div>
 
