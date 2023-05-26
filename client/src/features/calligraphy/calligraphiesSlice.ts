@@ -1,9 +1,9 @@
 // tasks/tasksSlice.ts
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { CalligraphyId, Calligraphy } from './types/Calligraphy';
+import { useAppDispatch } from '../../store';
 import CalligraphiesState from './types/CalligraphyState';
 import * as api from './api';
-import { useAppDispatch } from '../../store';
 import { getMyCalligraphies } from '../userpage/userPageSlice';
 
 const initialState: CalligraphiesState = {
@@ -16,21 +16,23 @@ export const createCalligraphy = createAsyncThunk(
     title,
     link,
     koreantitle,
+    price,
   }: {
     title: string;
     link: string;
     koreantitle: string;
+    price: number;
   }) => {
     if (!title.trim() || !link.trim() || !koreantitle.trim()) {
       throw new Error('Заполните все поля');
     }
-    return api.createCalligraphy(title, link, koreantitle);
-  }
+    return api.createCalligraphy(title, link, koreantitle, price);
+  },
 );
 
 export const loadCalligraphies = createAsyncThunk(
   'calligraphies/loadCalligraphies',
-  () => api.getCalligraphy()
+  () => api.getCalligraphy(),
 );
 
 export const updateCalligraphy = createAsyncThunk(
@@ -38,7 +40,7 @@ export const updateCalligraphy = createAsyncThunk(
   async (newCalligraphy: Calligraphy) => {
     await api.updateCalligraphy(newCalligraphy);
     return newCalligraphy;
-  }
+  },
 );
 
 export const deleteCalligraphy = createAsyncThunk(
@@ -46,7 +48,7 @@ export const deleteCalligraphy = createAsyncThunk(
   async (id: CalligraphyId) => {
     await api.deleteCalligraphy(id);
     return id;
-  }
+  },
 );
 
 export const buyCalligraphy = createAsyncThunk(
@@ -56,7 +58,7 @@ export const buyCalligraphy = createAsyncThunk(
     const dispatch = useAppDispatch();
     dispatch(getMyCalligraphies());
     return id;
-  }
+  },
 );
 
 const calligraphiesSlice = createSlice({
@@ -76,13 +78,13 @@ const calligraphiesSlice = createSlice({
 
       .addCase(updateCalligraphy.fulfilled, (state, action) => {
         state.calligraphies = state.calligraphies.map((calligraphy) =>
-          calligraphy.id === action.payload.id ? action.payload : calligraphy
+          calligraphy.id === action.payload.id ? action.payload : calligraphy,
         );
       })
 
       .addCase(deleteCalligraphy.fulfilled, (state, action) => {
         state.calligraphies = state.calligraphies.filter(
-          (callirgaphy) => callirgaphy.id !== action.payload
+          (callirgaphy) => callirgaphy.id !== action.payload,
         );
       });
 

@@ -3,11 +3,12 @@ import { CalligraphyId, Calligraphy } from './types/Calligraphy';
 export async function createCalligraphy(
   title: string,
   link: string,
-  koreantitle: string
+  koreantitle: string,
+  price: number,
 ): Promise<Calligraphy> {
   const res = await fetch('/api/calligraphies', {
     method: 'POST',
-    body: JSON.stringify({ title, link, koreantitle }),
+    body: JSON.stringify({ title, link, koreantitle, price }),
     headers: {
       'Content-Type': 'application/json',
     },
@@ -22,7 +23,7 @@ export async function createCalligraphy(
 }
 
 export async function updateCalligraphy(
-  calligraphy: Calligraphy
+  calligraphy: Calligraphy,
 ): Promise<void> {
   await fetch(`/api/calligraphies/${calligraphy.id}`, {
     method: 'PUT',

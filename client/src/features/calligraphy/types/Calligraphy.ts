@@ -5,7 +5,7 @@ export type Calligraphy = {
   link: string;
   title: string;
   koreantitle: string;
-  price: number;
+  price: string;
   type: string;
 };
 

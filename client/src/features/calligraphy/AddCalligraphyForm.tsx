@@ -11,6 +11,7 @@ interface FormInput {
   title: string;
   link: string;
   koreantitle: string;
+  price: number;
 }
 
 function AddCalligraphyForm(): JSX.Element {
@@ -56,6 +57,15 @@ function AddCalligraphyForm(): JSX.Element {
             placeholder="введите ссылку"
             id="link-input"
             {...register('link')}
+          />
+        </label>
+        <label htmlFor="link-input" className="form-label">
+          Цена
+          <input
+            type="text"
+            placeholder="стоимость каллиграфии"
+            id="link-input"
+            {...register('price')}
           />
         </label>
         <button type="submit" className="addform-btn">
