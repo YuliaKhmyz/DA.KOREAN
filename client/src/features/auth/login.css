@@ -1,7 +1,8 @@
 @font-face {
   font-family: 'South';
   font-weight: 400;
-  src: local('South'), url('./South.woff2'), url('./South.woff') format('truetype');
+  src: local('South'), url('./South.woff2'),
+    url('./South.woff') format('truetype');
 }
 
 .login-container {
@@ -26,7 +27,7 @@
   letter-spacing: 0.05em;
   font-size: 48px;
   text-transform: uppercase;
-  margin: 0px 0px 40px 0px;
+  margin: 0px 0px 10px 0px;
 }
 
 .login .form-label {

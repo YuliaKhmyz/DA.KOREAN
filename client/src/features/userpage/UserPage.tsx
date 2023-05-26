@@ -44,9 +44,10 @@ function MyPage(): JSX.Element {
         <div>Здесь будут ваши курсы</div>
         <br />
         <h5 className="page-subtitle">Мои прописи</h5>
-        {!mycalligraphies && <div>Здесь будут ваши прописи</div>}
-        {mycalligraphies && (
-          <div>
+        {mycalligraphies.length === 0 ? (
+          <div>Здесь будут ваши прописи</div>
+        ) : (
+          <div className="bought-calligraphies">
             {mycalligraphies.map((calligraphy) => (
               <div className="bought-course" key={calligraphy.id}>
                 <div className="calligraphy-subtitle">{calligraphy.title}</div>
@@ -57,7 +58,6 @@ function MyPage(): JSX.Element {
                 </Link>
               </div>
             ))}
-            {/* <UploadFile /> */}
           </div>
         )}
       </Container>

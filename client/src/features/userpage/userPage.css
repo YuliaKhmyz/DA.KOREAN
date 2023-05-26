@@ -1,7 +1,8 @@
 @font-face {
   font-family: 'South';
   font-weight: 400;
-  src: local('South'), url('./South.woff2'), url('./South.woff') format('truetype');
+  src: local('South'), url('./South.woff2'),
+    url('./South.woff') format('truetype');
 }
 
 .user-page .greetings {
@@ -63,4 +64,8 @@
 
 .user-page .download:active {
   background-color: #545763;
+}
+
+.user-page .bought-calligraphies {
+  margin-bottom: 30px;
 }
