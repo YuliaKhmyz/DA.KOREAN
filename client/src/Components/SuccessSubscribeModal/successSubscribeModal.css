@@ -1,6 +1,7 @@
 .modal {
   display: block;
   color: #201a1a;
+  top: 40px;
 }
 
 .modal .modal-body {

@@ -18,7 +18,7 @@ function NewsSubscribeForm(): JSX.Element {
   const [showModal, setShowModal] = useState(false);
 
   const toggleModal = (): void => {
-    if (value !== '') {
+    if (value !== '' || showModal === true) {
       setShowModal(!showModal);
     }
   };
@@ -28,10 +28,12 @@ function NewsSubscribeForm(): JSX.Element {
   };
 
   const onSubmit: SubmitHandler<FormInput> = async (data) => {
-    const dispatchResult = await dispatch(sendNews(data.email));
-    console.log(dispatchResult);
-    setValue('');
-    reset();
+    if (value !== '') {
+      const dispatchResult = await dispatch(sendNews(data.email));
+      console.log(dispatchResult);
+      setValue('');
+      reset();
+    }
   };
 
   return (
