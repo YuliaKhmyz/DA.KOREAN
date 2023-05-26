@@ -22,8 +22,6 @@ function CoursesPage(): JSX.Element {
     });
   }, []);
 
-  console.log(courses);
-
   useEffect(() => {
     dispatch(loadCourses());
   }, [dispatch]);
